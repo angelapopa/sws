@@ -7,17 +7,21 @@ Team: 6
 
 Topic: Hotel Booking API
 
-# immediate todos
+### immediate todos
   
   * find test data
   * install needed tools
+  
     ** browser plugins or SOAP UI or Postman in order to test the REST API
+    
     ** set up a database and import the test data
+    
     ** set up a local http server
+    
   * implement a minimal prototype to check if all systems work properly together
   * document the steps from the above steps
 
-# design the REST API
+### design the REST API
   * identify 10 resources
   * identify at least one action per resource
   * define fields of the resources that can be queried and fields that will be exposed
@@ -27,6 +31,6 @@ Topic: Hotel Booking API
   * define mockup api calls and responses
   * check if design guideliness were met
   
-# start implementing :)
+### start implementing :)
 
-# test
+### implement, test and improve
