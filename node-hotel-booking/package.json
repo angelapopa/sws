@@ -1,14 +1,28 @@
 {
   "name": "node-hotel-booking",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "zahra, Angela",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3"
-  }
+  },
+  "devDependencies": {
+    "def": "0.0.8"
+  },
+  "description": "this is the project",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angelapopa/sws.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "bugs": {
+    "url": "https://github.com/angelapopa/sws/issues"
+  },
+  "homepage": "https://github.com/angelapopa/sws#readme"
 }
