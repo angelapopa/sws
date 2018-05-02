@@ -1,19 +1,23 @@
 {
   "name": "node-hotel-booking",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
+  "description": "SWS Rest API Hotel Booking",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server.js --exec babel-node -e js"
   },
-  "author": "zahra, Angela",
+  "author": "Zahra Jafari, Angela Popa",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "nodemon": "^1.17.3"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "def": "0.0.8"
   },
-  "description": "this is the project",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/angelapopa/sws.git"
