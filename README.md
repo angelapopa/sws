@@ -15,14 +15,14 @@ Topic: Hotel Booking API
 
       * https://old.datahub.io/dataset/wikivoyage-listings-as-csv/resource/15f9e529-22e3-4862-9a0a-ff77692c789d
 
-    - [x] install needed tools (see `Preperation` section)
+  - [x] install needed tools (see `Preperation` section)
 
-    - [x] browser plugins or SOAP UI or Postman in order to test the REST API
+  - [x] browser plugins or SOAP UI or Postman in order to test the REST API
 
-    - [x] set up a local http server
+  - [x] set up a local http server
 
-    - [x] set up a database
-    - [ ] prepare and import test data into the database
+  - [x] set up a database
+  - [ ] prepare and import test data into the database
 
   - [x] implement a minimal prototype to check if all systems work properly together
 
@@ -38,7 +38,7 @@ Topic: Hotel Booking API
   - [ ] define mockup api calls and responses
   - [ ] check if design guideliness were met
 
-### start implementing :)
+### Environment Setup
 
 Preparation:
 * install an IDE, e.g. VS Code https://code.visualstudio.com/
@@ -69,11 +69,14 @@ Preparation:
 
 * install `npm install --save body-parser`
 
-Project setup:
+### Project setup:
+
   * the project folder is `node-hotel-booking`
-  * run `npm install` in a terminal window at `/sws/node-hotel-booking/` location and every time teh package.json changes
+  * run `npm install` in a terminal window at `/sws/node-hotel-booking/` location every time the package.json changes
   * `npm start` - to start the node server
   * if `nodemon` was configured in the main js file, then no restart of the server is needed after a code change
   * for `POST` requests in Postman, don't forget to select `x-www-form-urlencoded` in the `Body` tab.
+
+### start implementing :)
 
 ### implement, test and improve
