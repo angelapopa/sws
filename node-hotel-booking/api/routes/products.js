@@ -1,37 +1,21 @@
-const express = require ('express');
-const router = express.Router();
+import { 
+    addNewProduct,
+    getProducts,
+    getProductWithID,
+ } from "../controllers/productController";
 
-router.get('/', (req, res, next) => {
-  res.status(200).json({
-
-      message: "get request to products"
-
-
-  });
-
-});
-router.post('/', (req, res, next) => {
-    res.status(200).json({
-  
-        message: "post request to products"
-  
-    });
-  
-  });
-   
-  router.get('/:products', (req, res, next) => {
-       const id = req.params.productsId;
-       
-     if (id === 'special' ){
-       res.status(200).json({
-           message: "spacial id here is discovered"
-         
-       });
-     } else {
-        res.status(200).json({
-            message: "passed id"
-        });
-     }
+const routes = (app) => {
+    app.route('/products')
+    .get((req, res, next) => {
+        next(); //continues with next function
+    }, getProducts)
     
-  });
-  module.exports = router;
+    //POST endpoint
+    .post(addNewProduct);
+
+    app.route('/products/:productId')
+    //get specific product
+    .get(getProductWithID);
+}
+
+export default routes;
