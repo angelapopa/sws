@@ -7,22 +7,33 @@ Team: 6
 
 Topic: Hotel Booking API
 
+### Project setup:
+
+  * the project folder is `node-hotel-booking`
+  * run `npm install` in a terminal window at `/sws/node-hotel-booking/` location every time the package.json changes
+  * `npm start` - to start the node server
+  * if `nodemon` was configured in the main js file, then no restart of the server is needed after each code change
+  * for `POST` requests in Postman, don't forget to select `x-www-form-urlencoded` in the `Body` tab.
+
 ### immediate todos
 
   - [x] find test data
 
-      * http://tour-pedia.org/about/datasets.html
+      * http://tour-pedia.org/about/datasets.html    - has no room information
 
       * https://old.datahub.io/dataset/wikivoyage-listings-as-csv/resource/15f9e529-22e3-4862-9a0a-ff77692c789d
 
-  - [x] install needed tools (see `Preperation` section)
+      * we stick to the semantify data from Masterseminar, we dropped the annotations, and kept all data fields the same as teh semantify data
+
+  - [x] install needed tools  (see `\notes\environment_setup.md` the `Preperation` section)
 
   - [x] browser plugins or SOAP UI or Postman in order to test the REST API
 
   - [x] set up a local http server
 
   - [x] set up a database
-  - [ ] prepare and import test data into the database
+
+  - [x] prepare and import test data into the database (see `\notes\environment_setup.md` the `Preperation` section)
 
   - [x] implement a minimal prototype to check if all systems work properly together
 
@@ -38,45 +49,9 @@ Topic: Hotel Booking API
   - [ ] define mockup api calls and responses
   - [ ] check if design guideliness were met
 
-### Environment Setup
-
-Preparation:
-* install an IDE, e.g. VS Code https://code.visualstudio.com/
-* install Postman https://www.getpostman.com/apps
-
-  ** test if postman works by creating a GET request to https://api.github.com/
-
-* install Node.js, the LTS version, https://nodejs.org/en/
- if you don't have node installed already
-
-  ** `npm init` (to generate a package.json) - needed only at project initialisation
-
-  ** `npm install express` - needed only at project initialisation
-
-* install `MongoDB` Community Edition https://www.mongodb.com/
-* start mongodb `"C:\Program Files\MongoDB\Server\3.6\bin\mongod.exe" --dbpath "\your\path\to\db\data"`. For Unix Systems `sudo service mongod start` (https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
-
-* (optional) install mongoose library to help model the db entries
- `npm mongoose`
-
-* install Robo 3T https://robomongo.org/ and follow the setup instructions on the online site (incl. creating a new folder on disk for db data).
-
-* create or import a database schema and configure it's name in `index.js`
-
-* install nodemon (`npm install --save nodemon`), this will update the js files on the servers on change
-
-* install babel (`npm install --save-dev babel-preset-env`). Create a `.babelrc` file with following content `"presets" : ["env"]`.
-
-* install `npm install --save body-parser`
-
-### Project setup:
-
-  * the project folder is `node-hotel-booking`
-  * run `npm install` in a terminal window at `/sws/node-hotel-booking/` location every time the package.json changes
-  * `npm start` - to start the node server
-  * if `nodemon` was configured in the main js file, then no restart of the server is needed after a code change
-  * for `POST` requests in Postman, don't forget to select `x-www-form-urlencoded` in the `Body` tab.
-
 ### start implementing :)
+  - [ ] create new model classes to fit the data from the new dataset
+  - [ ] try out GET, POST requests with the new data models on the new database `swshotels` (don't forget to change the db name in the `sever.js file`)
+  - other todos ...
 
 ### implement, test and improve
