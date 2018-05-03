@@ -15,30 +15,7 @@ Topic: Hotel Booking API
   * if `nodemon` was configured in the main js file, then no restart of the server is needed after each code change
   * for `POST` requests in Postman, don't forget to select `x-www-form-urlencoded` in the `Body` tab.
 
-### immediate todos
-
-  - [x] find test data
-
-      * http://tour-pedia.org/about/datasets.html    - has no room information
-
-      * https://old.datahub.io/dataset/wikivoyage-listings-as-csv/resource/15f9e529-22e3-4862-9a0a-ff77692c789d
-
-      * we stick to the semantify data from Masterseminar, we dropped the annotations, and kept all data fields the same as teh semantify data
-
-  - [x] install needed tools  (see `\notes\environment_setup.md` the `Preperation` section)
-
-  - [x] browser plugins or SOAP UI or Postman in order to test the REST API
-
-  - [x] set up a local http server
-
-  - [x] set up a database
-
-  - [x] prepare and import test data into the database (see `\notes\environment_setup.md` the `Preperation` section)
-
-  - [x] implement a minimal prototype to check if all systems work properly together
-
-  - [x] document the above steps
-
+## TODOs
 ### design the REST API
   - [ ] identify 10 resources
   - [ ] identify at least one action per resource
@@ -50,8 +27,23 @@ Topic: Hotel Booking API
   - [ ] check if design guideliness were met
 
 ### start implementing :)
-  - [ ] create new model classes to fit the data from the new dataset
+  - [ ] create new model classes to fit the data from the new dataset (maybe not all fields from the db need to used in the model)
   - [ ] try out GET, POST requests with the new data models on the new database `swshotels` (don't forget to change the db name in the `sever.js file`)
   - other todos ...
 
-### implement, test and improve
+
+  ### enpoints
+
+  |  | HTTP Request type | Endpoint| Response  |
+  |---- | ------------- |:-------------|:-----|
+  |<ul><li>[ ] done</li> | GET | api/hotels | all hotels |
+  |<ul><li>[ ] done</li>| GET | api/hotels/id | one specific hotel|
+  |<ul><li>[ ] done</li>| GET | api/hotels/name | one specific hotel|
+  |<ul><li>[ ] done</li>| GET | api/hotels/id/rooms | all rooms of the specific hotel|
+  |<ul><li>[ ] done</li>| GET | api/hotel/id/images | all images of the hotel|
+  |<ul><li>[ ] done</li>| POST| api/hotels/TODO | create a new hotel|
+  |||TODO add more||
+
+
+### test and improve
+- todo
