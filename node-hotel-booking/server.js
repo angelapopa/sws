@@ -1,14 +1,14 @@
 import mongoose from 'mongoose';
 import express from 'express';
 import bodyParser from 'body-parser'; //allows to send data to DB through http
-import routes from './api/routes/products';
+import routes from './api/routes/hotels';
 
 const app = express();
 const PORT = 3000;
 
 //mongoose connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/MongoDBTutorial', {
+mongoose.connect('mongodb://localhost/swshotels', {
     useMongoCLient: true
 });
 
