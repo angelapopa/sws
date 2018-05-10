@@ -58,7 +58,7 @@ Topic: Hotel Booking API
   |  | HTTP Request type | Endpoint| Response  | Remarks|
   |---- | --- | :--- | :--- | --- |
   |<ul><li>[x] done</li> | GET | api/hotels | all hotels ||
-  |<ul><li>[ ] TODO</li> | POST | api/hotels | the new hotel | TODO |
+  |<ul><li>[ ] TODO</li> | POST | api/hotels | adds a new hotel | TODO |
   |<ul><li>[x] done</li>| GET | api/hotels/<name\> | one specific hotel| for hotels that have special characters inside the name use the encoding listed above|
   |<ul><li>[ ] TODO</li> | DELETE | api/hotels/<name\> | deletes the hotel | TODO |
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms | all rooms of the specific hotel||
@@ -75,7 +75,7 @@ Topic: Hotel Booking API
   |<ul><li>[ ] TODO</li>| DELETE | api/hotel/<name\>/facilities/<name\> | deletes one facility| TODO|
   |<ul><li>[x] done</li>| GET | api/locations/<location\>/hotels | all hotels at the named location||
   |<ul><li>[ ] TODO</li>| GET | api/users | all users| TODO|
-  |<ul><li>[ ] TODO</li>| POST | api/users | new user| TODO|
+  |<ul><li>[ ] TODO</li>| POST | api/users | adds a new user| TODO|
 
 
 ### test and improve
