@@ -54,4 +54,4 @@ Topic: Hotel Booking API
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Heisenhaus |||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Ferienwohnungen%20Bernadette | Hotel name with space inside the name||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Haus%20Emilie%20&%20Apart%20Papilio%20im%20Naturpark | Hotel name with space and '&' inside the name|'&' is treated normal|
-|<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Landhaus%20Anger/images |[{"url": "http://resc.deskline.net/images/ZIL/1/4a4757b9-249c-4a46-bf51-ca784a3709b7/99/image.jpg","caption": "Landhaus Anger Mayrhofen - Winterfoto 1"},..]| t|
+|<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Landhaus%20Anger/images |||

@@ -26,7 +26,7 @@ app.get('/api', (req, res) =>
 );
 
 app.use((err, req, res, next) => {
-    cosole.error(err.stack);
+    console.error(err.stack);
     res.status(500).send("An error occured!");
 });
 

@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 export const Schema = mongoose.Schema;
 
-//used for POST
+//fields used for POST
 export const HotelSchema = new Schema({
     name: {
         type: String,
@@ -24,5 +24,15 @@ export const HotelSchema = new Schema({
         url: { type:String},
         caption : { type: String}
     }]
-    //TODO add more fields
+    //TODO add more fields (if needed)
 });
+
+//hiding mongod db fields _id and _v 
+//from the json object that is returned
+//by a GET request
+HotelSchema.method('toJSON', function() {
+    var hotel = this.toObject();
+    delete hotel._id;
+    delete hotel.__v;
+    return hotel;
+  });

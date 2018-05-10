@@ -13,14 +13,18 @@ export const addNewHotel = (req, res) => {
 
 //TODO add paging
 export const getHotels = (req, res) => {
-    Hotel.find({}, (err, hotel) => {
+    Hotel.find({})
+    .select(['name', 'url', 'description', 'geo', 'priceRange', 'currenciesAccepted'])
+    .exec(function (err, hotel){
         res.json(hotel);
     });
 };
 
 export const getHotelByName = (req, res) => {
     let hotelName = req.params.name;
-    Hotel.findOne({name:hotelName}, (err, hotel) =>{
+    Hotel.findOne({name:hotelName})
+    .select(['name', 'url', 'description', 'geo', 'priceRange', 'currenciesAccepted'])
+    .exec(function (err, hotel){
         if (hotel == null){
             console.log("The Hotel name "+ hotelName + " was not found!");
             res.status(404).send("The Hotel name "+ hotelName + " was not found!");
