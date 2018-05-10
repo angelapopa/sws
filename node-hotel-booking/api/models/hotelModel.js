@@ -2,6 +2,12 @@ import mongoose from 'mongoose';
 
 export const Schema = mongoose.Schema;
 
+//mongoose subdocument for rooms
+export const roomSchema = new Schema({ 
+    name : {type: String},
+    description: {type: String}
+ });
+
 //fields used for POST
 export const HotelSchema = new Schema({
     name: {
@@ -17,17 +23,33 @@ export const HotelSchema = new Schema({
         required: 'Enter the accepted currency'
     },
     priceRange: {
-        type:String,
-        required:'Enter the pricerange for rooms'
+        type: String,
+        required: 'Enter the pricerange for rooms'
     },
     image: [{
-        url: { type:String},
+        url: { type: String},
         caption : { type: String}
-    }]
+    }],
+    makesOffer: [roomSchema] //mongoose child subdocument
+
     //TODO add more fields (if needed)
 });
 
-//hiding mongod db fields _id and _v 
+//hiding mongo db fields
+//from the json object that is returned
+//by a GET request
+roomSchema.method('toJSON', function() {
+    var room = this.toObject();
+    delete room._id;
+    delete room.__v;
+    //availability has always schema.org value InStock, in the db, so it will not be displayed to the end user
+    delete room.availability;
+    //price specification is handled in it's own endpoint
+    delete room.priceSpecification;
+    return room;
+  });
+
+//hiding mongo db fields _id and _v 
 //from the json object that is returned
 //by a GET request
 HotelSchema.method('toJSON', function() {

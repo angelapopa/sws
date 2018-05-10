@@ -94,4 +94,18 @@ export const getHotelPayments = (req, res) => {
     });
 };
 
+export const getHotelRooms = (req, res) => {
+    let hotelName = req.params.name;
+    Hotel.findOne({name:hotelName}, (err, hotel) =>{
+        if (hotel == null){
+            console.log("The Hotel name "+ hotelName + " was not found!");
+            res.status(404).send("The Hotel name "+ hotelName + " was not found!");
+        }
+        if (hotel != null){
+            console.log("Found "+ hotel.makesOffer + " room offers.");
+            res.status(200).json(hotel.makesOffer);
+        }
+    });
+};
+
 //TODO add some more actions for hotel

@@ -5,7 +5,9 @@ import {
     getHotelImages,
     getHotelLocation,
     getHotelsAtLocation,
-    getHotelPayments
+    getHotelPayments,
+    getHotelRooms,
+    getHotelRoomPrices
  } from "../controllers/hotelController";
 
 const routes = (app) => {
@@ -47,6 +49,11 @@ const routes = (app) => {
     .get((req, res, next) => {
         next();
     }, getHotelPayments);
+
+    app.route('/api/hotels/:name/rooms')
+    .get((req, res, next) => {
+        next();
+    }, getHotelRooms);
 
     app.route('/api/locations/:locationName/hotels')
     .get((req, res, next) => {

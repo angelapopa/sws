@@ -18,7 +18,7 @@ Topic: Hotel Booking API
 ## TODOs
 ### design the REST API
   - [ ] identify 10 resources
-  - [ ] identify at least one action per resource
+  - [x] identify at least one action per resource (`GET`, `POST`)
   - [ ] define fields of the resources that can be queried and fields that will be exposed
   - [ ] define the api syntax for each action on resources (including the http actions and the http error codes)
   - [x] decide upon the data format (xml/json/other): JSON
@@ -27,13 +27,22 @@ Topic: Hotel Booking API
   - [ ] check if design guideliness were met
 
 ### start implementing :)
-  - [ ] create new model classes to fit the data from the new dataset (maybe not all fields from the db need to used in the model)
-  - [ ] try out GET, POST requests with the new data models on the new database `swshotels` (don't forget to change the db name in the `sever.js file`)
+  - [x] create new model classes to fit the data from the new dataset (maybe not all fields from the db need to used in the model)
+  - [x] try out GET, POST requests with the new data models on the new database `swshotels` (don't forget to change the db name in the `sever.js file`)
   - [ ] add paging for the get request (`/hotels`)
   - [ ] add navigation (HATEOS)
   - [ ] how to define facilities for hotel/room?
   - [ ] how to define availability for rooms?
   - other todos ...
+
+
+ ### Error codes
+
+ | HTTP Error Code | Description | HTTP Request Type|
+ | :--- | :--- | :--- |
+ |200| `OK`| GET|
+ |201|`Created`| POST|
+ |404| `Entity Not found`| GET|
 
 
   ### enpoints
@@ -42,7 +51,8 @@ Topic: Hotel Booking API
   |---- | --- | :--- | :--- | --- |
   |<ul><li>[x] done</li> | GET | api/hotels | all hotels ||
   |<ul><li>[x] done</li>| GET | api/hotels/<name\> | one specific hotel| for hotels that have a space inside the name use %20 instead of the space, e.g. Ferienwohnungen%20Bernadette|
-  |<ul><li>[ ] done</li>| GET | api/hotels/<name\>/rooms | all rooms of the specific hotel||
+  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms | all rooms of the specific hotel||
+  |<ul><li>[ ] done</li>| GET | api/hotels/<name\>/rooms/prices | all prices for rooms of a specific hotel||
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/images | all images of the hotel||
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/location | the postal address and the geo location of the hotel||
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/payments | the currencies and payment posibilities that the hotel offers||
