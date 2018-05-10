@@ -16,11 +16,19 @@ mongoose.connect('mongodb://localhost/swshotels', {
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
+// use express json (as an alternative to bodyparser)
+app.use(express.json());
+
 routes(app);
 
 app.get('/', (req, res) => 
     res.send(`Node and express server is running on port ${PORT}`)
 );
+
+app.use((err, req, res, next) => {
+    cosole.error(err.stack);
+    res.status(500).send("An error occured!");
+});
 
 app.listen(PORT, () => 
     console.log(`your server is running on port ${PORT}`)

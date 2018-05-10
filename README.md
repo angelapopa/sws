@@ -29,21 +29,27 @@ Topic: Hotel Booking API
 ### start implementing :)
   - [ ] create new model classes to fit the data from the new dataset (maybe not all fields from the db need to used in the model)
   - [ ] try out GET, POST requests with the new data models on the new database `swshotels` (don't forget to change the db name in the `sever.js file`)
+  - [ ] add paging for the get request (`/hotels`)
   - other todos ...
 
 
   ### enpoints
 
-  |  | HTTP Request type | Endpoint| Response  |
+  |  | HTTP Request type | Endpoint| Response  | Remarks
   |---- | ------------- |:-------------|:-----|
-  |<ul><li>[ ] done</li> | GET | api/hotels | all hotels |
-  |<ul><li>[ ] done</li>| GET | api/hotels/id | one specific hotel|
-  |<ul><li>[ ] done</li>| GET | api/hotels/name | one specific hotel|
-  |<ul><li>[ ] done</li>| GET | api/hotels/id/rooms | all rooms of the specific hotel|
-  |<ul><li>[ ] done</li>| GET | api/hotel/id/images | all images of the hotel|
-  |<ul><li>[ ] done</li>| POST| api/hotels/TODO | create a new hotel|
+  |<ul><li>[x] done</li> | GET | api/hotels | all hotels ||
+  |<ul><li>[x] done</li>| GET | api/hotels/name | one specific hotel| for hotels that have a space inside the name use %20 instead of the space, e.g. Ferienwohnungen%20Bernadette|
+  |<ul><li>[ ] done</li>| GET | api/hotels/name/rooms | all rooms of the specific hotel||
+  |<ul><li>[ ] done</li>| GET | api/hotel/name/images | all images of the hotel||
+  |<ul><li>[ ] done</li>| GET | api/hotel/name/address | the address of the hotel||
+  |<ul><li>[ ] done</li>| POST| api/hotels/TODO | create a new hotel||
   |||TODO add more||
 
 
 ### test and improve
-- todo
+|  | HTTP Request type | Endpoint| Response  | Remarks
+|---- | ------------- |:-------------|:-----|
+|<ul><li>[x] done</li> | GET |http://localhost:3000/hotels| all hotels ||
+|<ul><li>[x] done</li>| GET | http://localhost:3000/hotels/Heisenhaus | |
+|<ul><li>[x] done</li>| GET | http://localhost:3000/hotels/Ferienwohnungen%20Bernadette | Hotel name with space inside the name|
+|<ul><li>[x] done</li>| GET | http://localhost:3000/hotels/Haus%20Emilie%20&%20Apart%20Papilio%20im%20Naturpark | Hotel name with space and '&' inside the name|
