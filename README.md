@@ -40,7 +40,7 @@ Topic: Hotel Booking API
   |<ul><li>[x] done</li> | GET | api/hotels | all hotels ||
   |<ul><li>[x] done</li>| GET | api/hotels/name | one specific hotel| for hotels that have a space inside the name use %20 instead of the space, e.g. Ferienwohnungen%20Bernadette|
   |<ul><li>[ ] done</li>| GET | api/hotels/name/rooms | all rooms of the specific hotel||
-  |<ul><li>[ ] done</li>| GET | api/hotels/name/images | all images of the hotel||
+  |<ul><li>[x] done</li>| GET | api/hotels/name/images | all images of the hotel||
   |<ul><li>[ ] done</li>| GET | api/hotels/name/address | the address of the hotel||
   |<ul><li>[ ] done</li>| POST| api/hotels/TODO | create a new hotel||
   |TODO||add more||add more|
@@ -54,3 +54,4 @@ Topic: Hotel Booking API
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Heisenhaus |||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Ferienwohnungen%20Bernadette | Hotel name with space inside the name||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Haus%20Emilie%20&%20Apart%20Papilio%20im%20Naturpark | Hotel name with space and '&' inside the name|'&' is treated normal|
+|<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Landhaus%20Anger/images |[{"url": "http://resc.deskline.net/images/ZIL/1/4a4757b9-249c-4a46-bf51-ca784a3709b7/99/image.jpg","caption": "Landhaus Anger Mayrhofen - Winterfoto 1"},..]| t|

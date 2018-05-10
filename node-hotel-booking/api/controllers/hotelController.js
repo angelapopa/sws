@@ -11,7 +11,7 @@ export const addNewHotel = (req, res) => {
     });
 };
 
-//TODO
+//TODO add paging
 export const getHotels = (req, res) => {
     Hotel.find({}, (err, hotel) => {
         res.json(hotel);
@@ -27,6 +27,20 @@ export const getHotelByName = (req, res) => {
         }
         if (hotel != null){
             res.status(200).json(hotel);
+        }
+    });
+};
+
+export const getHotelImages = (req, res) => {
+    let hotelName = req.params.name;
+    Hotel.findOne({name:hotelName}, (err, hotel) =>{
+        if (hotel == null){
+            console.log("The Hotel name "+ hotelName + " was not found!");
+            res.status(404).send("The Hotel name "+ hotelName + " was not found!");
+        }
+        if (hotel != null){
+            console.log("Found "+ hotel.image.length + " images.");
+            res.status(200).json(hotel.image);
         }
     });
 };

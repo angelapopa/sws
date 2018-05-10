@@ -2,6 +2,7 @@ import {
     addNewHotel,
     getHotels,
     getHotelByName,
+    getHotelImages
  } from "../controllers/hotelController";
 
 const routes = (app) => {
@@ -27,6 +28,13 @@ const routes = (app) => {
     }, (req, res) => 
         console.log("Some text")
     );
+
+    app.route('/api/hotels/:name/images')
+    .get((req, res, next) => {
+        console.log("Searching images for " + req.params.name);
+        next();
+    }, getHotelImages);
+
 
     //TODO add other endpoints
 }

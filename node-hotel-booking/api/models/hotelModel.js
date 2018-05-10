@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 
 export const Schema = mongoose.Schema;
+
+//used for POST
 export const HotelSchema = new Schema({
     name: {
         type: String,
@@ -17,6 +19,10 @@ export const HotelSchema = new Schema({
     priceRange: {
         type:String,
         required:'Enter the pricerange for rooms'
-    }
+    },
+    image: [{
+        url: { type:String},
+        caption : { type: String}
+    }]
     //TODO add more fields
 });
