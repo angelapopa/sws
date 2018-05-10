@@ -55,7 +55,7 @@ Topic: Hotel Booking API
 
   ### Enpoints/Resources
 
-  |  | HTTP Request type | Endpoint| Resulting Http Code| Resulting action  |
+  |  | HTTP Request type | Endpoint| Resulting HTTP Code| Resulting action  |
   |--- | --- | :--- | :--- | --- |
   |<ul><li>[x] done</li> | GET | api/hotels | `200 OK` | lists all hotels |
   |<ul><li>[ ] TODO</li> | POST | api/hotels | `201 Created` or <TODO\> code in case of error| adds a new hotel |
@@ -78,7 +78,7 @@ Topic: Hotel Booking API
   |<ul><li>[ ] TODO</li>| POST | api/users | `201 Created` or <TODO\> code in case of error|adds a new user|
 
 
-### test and improve
+### Test and improve
 
 |  | HTTP Request type | Endpoint| Response  | Remarks|
 | --- | --- | :--- | :--- | --- |
