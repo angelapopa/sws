@@ -50,7 +50,7 @@ Topic: Hotel Booking API
 
 |  | HTTP Request type | Endpoint| Response  | Remarks|
 | --- | --- | :--- | :--- | --- |
-|<ul><li>[x] done</li> | GET |http://localhost:3000/hotels| all hotels |||
-|<ul><li>[x] done</li>| GET | http://localhost:3000/hotels/Heisenhaus |||
-|<ul><li>[x] done</li>| GET | http://localhost:3000/hotels/Ferienwohnungen%20Bernadette | Hotel name with space inside the name||
-|<ul><li>[x] done</li>| GET | http://localhost:3000/hotels/Haus%20Emilie%20&%20Apart%20Papilio%20im%20Naturpark | Hotel name with space and '&' inside the name|'&' is treated normal|
+|<ul><li>[x] done</li> | GET |http://localhost:3000/api/hotels| all hotels |||
+|<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Heisenhaus |||
+|<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Ferienwohnungen%20Bernadette | Hotel name with space inside the name||
+|<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Haus%20Emilie%20&%20Apart%20Papilio%20im%20Naturpark | Hotel name with space and '&' inside the name|'&' is treated normal|
