@@ -55,27 +55,27 @@ Topic: Hotel Booking API
 
   ### Enpoints/Resources
 
-  |  | HTTP Request type | Endpoint| Response  | Remarks|
-  |---- | --- | :--- | :--- | --- |
-  |<ul><li>[x] done</li> | GET | api/hotels | all hotels ||
-  |<ul><li>[ ] TODO</li> | POST | api/hotels | adds a new hotel | TODO |
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\> | one specific hotel| for hotels that have special characters inside the name use the encoding listed above|
-  |<ul><li>[ ] TODO</li> | DELETE | api/hotels/<name\> | deletes the hotel | TODO |
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms | all rooms of the specific hotel||
-  |<ul><li>[ ] TODO</li>| POST | api/hotels/<name\>/rooms | add a new room| TODO|
-  |<ul><li>[ ] TODO</li>| DELETE | api/hotels/<name\>/rooms/<room_name\> | delete one room| TODO|
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms/<room_name\>/prices | all prices for rooms of a specific hotel||
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/images | all images of the hotel||
-  |<ul><li>[x] done</li>| POST | api/hotels/<name\>/images | add one image||
-  |<ul><li>[x] done</li>| DELETE | api/hotels/<name\>/images/<url\> | add one image||
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/location | the postal address and the geo location of the hotel||
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/payments | the currencies and payment posibilities that the hotel offers||
-  |<ul><li>[ ] TODO</li>| GET | api/hotel/<name\>/facilities | all facilities| TODO|
-  |<ul><li>[ ] TODO</li>| POST | api/hotel/<name\>/facilities | new facility| TODO|
-  |<ul><li>[ ] TODO</li>| DELETE | api/hotel/<name\>/facilities/<name\> | deletes one facility| TODO|
-  |<ul><li>[x] done</li>| GET | api/locations/<location\>/hotels | all hotels at the named location||
-  |<ul><li>[ ] TODO</li>| GET | api/users | all users| TODO|
-  |<ul><li>[ ] TODO</li>| POST | api/users | adds a new user| TODO|
+  |  | HTTP Request type | Endpoint| Resulting Http Code| Resulting action  |
+    |---- | --- | :--- | :--- | --- |
+  |<ul><li>[x] done</li> | GET | api/hotels | `200 OK` | lists all hotels |
+  |<ul><li>[ ] TODO</li> | POST | api/hotels | `201 Created` or <TODO\> code in case of error| adds a new hotel |
+  |<ul><li>[x] done</li>| GET | api/hotels/<name\> | `200 OK` or `404 Not Found` | returns one hotel|
+  |<ul><li>[ ] TODO</li> | DELETE | api/hotels/<name\> | `201 Created` or `404 Not Found` |deletes the hotel |
+  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms |`200 OK` or `404 Not Found`| all rooms of the specific hotel, or error in case the hotel is not found|
+  |<ul><li>[ ] TODO</li>| POST | api/hotels/<name\>/rooms | `201 Created` or <TODO\> code in case of error| adds a new room|
+  |<ul><li>[ ] TODO</li>| DELETE | api/hotels/<name\>/rooms/<room_name\> | TODO | delete one room|
+  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms/<room_name\>/prices | `200` or `404`| all prices for rooms of a specific hotel|
+  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/images | `200` or `404`| all images of the hotel|
+  |<ul><li>[x] done</li>| POST | api/hotels/<name\>/images | `201 Created` or `404 Not Found`| adds one image|
+  |<ul><li>[x] done</li>| DELETE | api/hotels/<name\>/images/<url\> | TODO| deletes one image|
+  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/location | `200 OK` or `404 Not Found`| the postal address and the geo location of the hotel||
+  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/payments | `200 OK` or `404 Not Found`| the currencies and payment posibilities that the hotel offers||
+  |<ul><li>[ ] TODO</li>| GET | api/hotel/<name\>/facilities | `200 OK` or `404 Not Found`|all facilities or emtpy list or error in case the hotel name is not found|
+  |<ul><li>[ ] TODO</li>| POST | api/hotel/<name\>/facilities | `201 Created` or `404 Not Found`| new facility|
+  |<ul><li>[ ] TODO</li>| DELETE | api/hotel/<name\>/facilities/<name\> | TODO| deletes one facility|
+  |<ul><li>[x] done</li>| GET | api/locations/<location\>/hotels | `200` or `404`| all hotels at the named location|
+  |<ul><li>[ ] TODO</li>| GET | api/users | `200` or `404`| all users|
+  |<ul><li>[ ] TODO</li>| POST | api/users | `201 Created` or <TODO\> code in case of error|adds a new user|
 
 
 ### test and improve
