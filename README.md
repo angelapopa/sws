@@ -45,6 +45,7 @@ Topic: Hotel Booking API
   |<ul><li>[ ] done</li>| GET | api/hotels/<name\>/rooms | all rooms of the specific hotel||
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/images | all images of the hotel||
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/location | the postal address and the geo location of the hotel||
+  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/payments | the currencies and payment posibilities that the hotel offers||
   |<ul><li>[x] done</li>| GET | api/locations/<location\>/hotels | all hotels at the named location||
   |<ul><li>[ ] done</li>| POST| api/hotels/TODO | create a new hotel||
   |TODO||add more||add more|
@@ -61,4 +62,5 @@ Topic: Hotel Booking API
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Landhaus%20Anger/images |||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Alpen%20Appartment%20Relax/location | the postal address and the geo location of the hotel||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/locations/Ramsau/hotels| the postal address and the geo location of the hotel||
+|<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Stab-Hütte/payments | the currencies and payment posibilities that the hotel offers| |
 |TODO||add more||add more|

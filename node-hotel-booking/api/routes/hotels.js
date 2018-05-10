@@ -4,7 +4,8 @@ import {
     getHotelByName,
     getHotelImages,
     getHotelLocation,
-    getHotelsAtLocation
+    getHotelsAtLocation,
+    getHotelPayments
  } from "../controllers/hotelController";
 
 const routes = (app) => {
@@ -42,10 +43,16 @@ const routes = (app) => {
         next();
     }, getHotelLocation);
 
+    app.route('/api/hotels/:name/payments')
+    .get((req, res, next) => {
+        next();
+    }, getHotelPayments);
+
     app.route('/api/locations/:locationName/hotels')
     .get((req, res, next) => {
         next();
     }, getHotelsAtLocation);
+
     //TODO add other endpoints
 }
 
