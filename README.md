@@ -56,7 +56,7 @@ Topic: Hotel Booking API
   ### Enpoints/Resources
 
   |  | HTTP Request type | Endpoint| Resulting Http Code| Resulting action  |
-  |---- | --- | :--- | :--- | --- |
+  |--- | --- | :--- | :--- | --- |
   |<ul><li>[x] done</li> | GET | api/hotels | `200 OK` | lists all hotels |
   |<ul><li>[ ] TODO</li> | POST | api/hotels | `201 Created` or <TODO\> code in case of error| adds a new hotel |
   |<ul><li>[x] done</li>| GET | api/hotels/<name\> | `200 OK` or `404 Not Found` | returns one hotel|
