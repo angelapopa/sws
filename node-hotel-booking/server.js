@@ -21,7 +21,7 @@ app.use(express.json());
 
 routes(app);
 
-app.get('/', (req, res) => 
+app.get('/api', (req, res) => 
     res.send(`Node and express server is running on port ${PORT}`)
 );
 

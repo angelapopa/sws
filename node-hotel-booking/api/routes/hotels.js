@@ -6,7 +6,7 @@ import {
 
 const routes = (app) => {
 
-    app.route('/hotels')
+    app.route('/api/hotels')
     //GET endpoint
     .get((req, res, next) => {
         next(); //continues with next function
@@ -14,7 +14,7 @@ const routes = (app) => {
     //POST endpoint
     .post(addNewHotel);
 
-    app.route('/hotels/:name')
+    app.route('/api/hotels/:name')
     .get((req, res, next) => {
         console.log("Search request for " + req.params.name);
         next();
