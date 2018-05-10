@@ -58,7 +58,7 @@ Topic: Hotel Booking API
   |  | HTTP Request type | Endpoint| Response  | Remarks|
   |---- | --- | :--- | :--- | --- |
   |<ul><li>[x] done</li> | GET | api/hotels | all hotels ||
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\> | one specific hotel| for hotels that have a space inside the name use %20 instead of the space, e.g. Ferienwohnungen%20Bernadette|
+  |<ul><li>[x] done</li>| GET | api/hotels/<name\> | one specific hotel| for hotels that have special characters inside the name use the encoding listed above|
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms | all rooms of the specific hotel||
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms/<room_name\>/prices | all prices for rooms of a specific hotel||
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/images | all images of the hotel||
@@ -80,6 +80,6 @@ Topic: Hotel Booking API
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Tuxerhof/rooms/Appartement%2FFewo/prices |||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Landhaus%20Anger/images |||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Alpen%20Appartment%20Relax/location | the postal address and the geo location of the hotel||
-|<ul><li>[x] done</li>| GET | http://localhost:3000/api/locations/Ramsau/hotels| the postal address and the geo location of the hotel||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Stab-Hütte/payments | the currencies and payment posibilities that the hotel offers| |
+|<ul><li>[x] done</li>| GET | http://localhost:3000/api/locations/Ramsau/hotels| the postal address and the geo location of the hotel||
 |TODO||add more||add more|
