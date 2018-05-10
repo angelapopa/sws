@@ -33,7 +33,7 @@ Topic: Hotel Booking API
   - [ ] add navigation (HATEOS)
   - [x] how to define facilities for hotel/room? There is no data in the dataset regarding facilities, so we create an endpoint and add facilities exclusively through the api
   - [x] how to define availability for rooms? Currently the db has the schema.org value InStock for all entries. So we ignore this data for now.
-  - other todos ...
+  - [ ] how to implement booking of rooms????????? since the assignment is called "Hotel Booking API"!!!
 
 
  ### Error codes
