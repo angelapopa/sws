@@ -40,13 +40,14 @@ Topic: Hotel Booking API
   |<ul><li>[x] done</li> | GET | api/hotels | all hotels ||
   |<ul><li>[x] done</li>| GET | api/hotels/name | one specific hotel| for hotels that have a space inside the name use %20 instead of the space, e.g. Ferienwohnungen%20Bernadette|
   |<ul><li>[ ] done</li>| GET | api/hotels/name/rooms | all rooms of the specific hotel||
-  |<ul><li>[ ] done</li>| GET | api/hotel/name/images | all images of the hotel||
-  |<ul><li>[ ] done</li>| GET | api/hotel/name/address | the address of the hotel||
+  |<ul><li>[ ] done</li>| GET | api/hotels/name/images | all images of the hotel||
+  |<ul><li>[ ] done</li>| GET | api/hotels/name/address | the address of the hotel||
   |<ul><li>[ ] done</li>| POST| api/hotels/TODO | create a new hotel||
   |TODO||add more||add more|
 
 
 ### test and improve
+
 |  | HTTP Request type | Endpoint| Response  | Remarks|
 | --- | --- | :--- | :--- | --- |
 |<ul><li>[x] done</li> | GET |http://localhost:3000/hotels| all hotels |||
