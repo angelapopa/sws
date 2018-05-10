@@ -56,7 +56,7 @@ Topic: Hotel Booking API
   ### Enpoints/Resources
 
   |  | HTTP Request type | Endpoint| Resulting Http Code| Resulting action  |
-    |---- | --- | :--- | :--- | --- |
+  |---- | --- | :--- | :--- | --- |
   |<ul><li>[x] done</li> | GET | api/hotels | `200 OK` | lists all hotels |
   |<ul><li>[ ] TODO</li> | POST | api/hotels | `201 Created` or <TODO\> code in case of error| adds a new hotel |
   |<ul><li>[x] done</li>| GET | api/hotels/<name\> | `200 OK` or `404 Not Found` | returns one hotel|
@@ -68,8 +68,8 @@ Topic: Hotel Booking API
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/images | `200` or `404`| all images of the hotel|
   |<ul><li>[x] done</li>| POST | api/hotels/<name\>/images | `201 Created` or `404 Not Found`| adds one image|
   |<ul><li>[x] done</li>| DELETE | api/hotels/<name\>/images/<url\> | TODO| deletes one image|
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/location | `200 OK` or `404 Not Found`| the postal address and the geo location of the hotel||
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/payments | `200 OK` or `404 Not Found`| the currencies and payment posibilities that the hotel offers||
+  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/location | `200 OK` or `404 Not Found`| the postal address and the geo location of the hotel|
+  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/payments | `200 OK` or `404 Not Found`| the currencies and payment posibilities that the hotel offers|
   |<ul><li>[ ] TODO</li>| GET | api/hotel/<name\>/facilities | `200 OK` or `404 Not Found`|all facilities or emtpy list or error in case the hotel name is not found|
   |<ul><li>[ ] TODO</li>| POST | api/hotel/<name\>/facilities | `201 Created` or `404 Not Found`| new facility|
   |<ul><li>[ ] TODO</li>| DELETE | api/hotel/<name\>/facilities/<name\> | TODO| deletes one facility|
