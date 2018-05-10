@@ -44,15 +44,23 @@ Topic: Hotel Booking API
  |201|`Created`| POST|
  |404| `Entity Not found`| GET|
 
+ ### ASCII encoding
 
-  ### enpoints
+ | Replace value in path | with encoding | Example
+ | :--- | :--- | :--- |
+ | space|%20|'Landhaus Anger' /api/hotels/Landhaus%20Anger/images|
+ | / | %2F|'Appartment/Fewo' /api/hotels/Tuxerhof/rooms/Appartement%2FFewo/prices|
+ | | | |
+
+
+  ### Enpoints/Resources
 
   |  | HTTP Request type | Endpoint| Response  | Remarks|
   |---- | --- | :--- | :--- | --- |
   |<ul><li>[x] done</li> | GET | api/hotels | all hotels ||
   |<ul><li>[x] done</li>| GET | api/hotels/<name\> | one specific hotel| for hotels that have a space inside the name use %20 instead of the space, e.g. Ferienwohnungen%20Bernadette|
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms | all rooms of the specific hotel||
-  |<ul><li>[ ] done</li>| GET | api/hotels/<name\>/rooms/prices | all prices for rooms of a specific hotel||
+  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms/<room_name\>/prices | all prices for rooms of a specific hotel||
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/images | all images of the hotel||
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/location | the postal address and the geo location of the hotel||
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/payments | the currencies and payment posibilities that the hotel offers||
@@ -68,7 +76,8 @@ Topic: Hotel Booking API
 |<ul><li>[x] done</li> | GET |http://localhost:3000/api/hotels| all hotels |||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Heisenhaus |||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Ferienwohnungen%20Bernadette | Hotel name with space inside the name||
-|<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Haus%20Emilie%20&%20Apart%20Papilio%20im%20Naturpark | Hotel name with space and '&' inside the name|'&' is treated normal|
+|<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Tuxerhof/rooms/ |||
+|<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Tuxerhof/rooms/Appartement%2FFewo/prices |||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Landhaus%20Anger/images |||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Alpen%20Appartment%20Relax/location | the postal address and the geo location of the hotel||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/locations/Ramsau/hotels| the postal address and the geo location of the hotel||

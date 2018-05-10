@@ -14,7 +14,13 @@ HotelSchema.method('toJSON', function() {
     return hotel;
   });
 ```
+An alternative solution would be to exclude it in all mongodb queries:
 
+(not tested yet!)
+```
+Hotel.find({})
+ .select{'name': 1, 'description':1, _id: 0, _v:0 }
+```
 
 ##### How to restrict the display of some normal fields in the json GET response?
 
@@ -33,3 +39,28 @@ Solution:
 MongoDB: ``` {"address.addressLocality":'Hippach'} ```
 
 NodeJs:  ```Hotel.find({"address.addressLocality":locationName})```
+
+##### How to define subdocuments/subelements of a json data item from the db
+
+definition inside the parent subdocument
+
+```
+export const HotelSchema = new Schema({
+
+    //some fields
+    //some other fields
+
+    //subdocument
+    makesOffer: [roomSchema] //mongoose child subdocument
+});
+```
+
+definition of the subdocument:
+```
+//mongoose subdocument for rooms
+export const roomSchema = new Schema({
+    name : {type: String},
+    description: {type: String}
+ });
+```
+http://mongoosejs.com/docs/subdocs.html

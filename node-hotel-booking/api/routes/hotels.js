@@ -55,6 +55,11 @@ const routes = (app) => {
         next();
     }, getHotelRooms);
 
+    app.route('/api/hotels/:name/rooms/:roomName/prices')
+    .get((req, res, next) => {
+        next();
+    }, getHotelRoomPrices);
+
     app.route('/api/locations/:locationName/hotels')
     .get((req, res, next) => {
         next();

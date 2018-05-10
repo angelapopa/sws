@@ -5,7 +5,13 @@ export const Schema = mongoose.Schema;
 //mongoose subdocument for rooms
 export const roomSchema = new Schema({ 
     name : {type: String},
-    description: {type: String}
+    description: {type: String},
+    priceSpecification: [{
+        description: {type: String},
+        minPrice: {type: Number},
+        maxPrice: {type: Number},
+        priceCurrency: {type: String}
+    }]
  });
 
 //fields used for POST
