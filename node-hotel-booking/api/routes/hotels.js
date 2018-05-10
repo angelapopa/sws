@@ -2,7 +2,9 @@ import {
     addNewHotel,
     getHotels,
     getHotelByName,
-    getHotelImages
+    getHotelImages,
+    getHotelLocation,
+    getHotelsAtLocation
  } from "../controllers/hotelController";
 
 const routes = (app) => {
@@ -35,7 +37,15 @@ const routes = (app) => {
         next();
     }, getHotelImages);
 
+    app.route('/api/hotels/:name/location')
+    .get((req, res, next) => {
+        next();
+    }, getHotelLocation);
 
+    app.route('/api/locations/:locationName/hotels')
+    .get((req, res, next) => {
+        next();
+    }, getHotelsAtLocation);
     //TODO add other endpoints
 }
 
