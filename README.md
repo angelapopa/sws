@@ -32,7 +32,7 @@ Topic: Hotel Booking API
   - [ ] add paging for the get request (`/hotels`)
   - [ ] add navigation (HATEOS)
   - [x] how to define facilities for hotel/room? There is no data in the dataset regarding facilities, so we create an endpoint and add facilities exclusively through the api
-  - [x] how to define availability for rooms? Currently the db has the schema.org value InStock for all entries. So we ignore this data for now.
+  - [ ] how to define availability for rooms? Currently the db has the schema.org value InStock for all entries. So we ignore this info for now. We should handle availability/booking differently somehow.
   - [ ] how to implement booking of rooms????????? since the assignment is called "Hotel Booking API"!!!
 
 
@@ -76,7 +76,8 @@ Topic: Hotel Booking API
   |<ul><li>[x] done</li>| GET | api/locations/<location\>/hotels | `200` or `404`| all hotels at the named location|
   |<ul><li>[ ] TODO</li>| GET | api/users | `200` or `404`| all users|
   |<ul><li>[ ] TODO</li>| POST | api/users | `201 Created` or <TODO\> code in case of error|adds a new user|
-
+  |<ul><li>[ ] TODO</li>| GET | hotel room avaliablility | Think of something how to handle this| TODO|
+  |<ul><li>[ ] TODO</li>| POST | book hotel room | Think of something how to handle this| TODO|
 
 ### Test and improve
 
