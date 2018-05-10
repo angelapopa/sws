@@ -32,7 +32,7 @@ Topic: Hotel Booking API
   - [ ] add paging for the get request (`/hotels`)
   - [ ] add navigation (HATEOS)
   - [ ] how to define facilities for hotel/room?
-  - [ ] how to define availability for rooms?
+  - [x] how to define availability for rooms? Currently the db has the schema.org value InStock for all entries. So we ignore this data for now.
   - other todos ...
 
 
@@ -58,14 +58,17 @@ Topic: Hotel Booking API
   |  | HTTP Request type | Endpoint| Response  | Remarks|
   |---- | --- | :--- | :--- | --- |
   |<ul><li>[x] done</li> | GET | api/hotels | all hotels ||
+  |<ul><li>[] done</li> | POST | api/hotels | the new hotel | TODO |
   |<ul><li>[x] done</li>| GET | api/hotels/<name\> | one specific hotel| for hotels that have special characters inside the name use the encoding listed above|
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms | all rooms of the specific hotel||
+  |<ul><li>[ ] done</li>| POST | api/hotels/<name\>/rooms | the new room| TODO|
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms/<room_name\>/prices | all prices for rooms of a specific hotel||
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/images | all images of the hotel||
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/location | the postal address and the geo location of the hotel||
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/payments | the currencies and payment posibilities that the hotel offers||
   |<ul><li>[x] done</li>| GET | api/locations/<location\>/hotels | all hotels at the named location||
-  |<ul><li>[ ] done</li>| POST| api/hotels/TODO | create a new hotel||
+  |<ul><li>[ ] done</li>| GET | api/users | all users| TODO|
+  |<ul><li>[ ] done</li>| POST | api/users | new user| TODO|
   |TODO||add more||add more|
 
 
