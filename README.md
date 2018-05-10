@@ -35,21 +35,21 @@ Topic: Hotel Booking API
 
   ### enpoints
 
-  |  | HTTP Request type | Endpoint| Response  | Remarks
-  |---- | ------------- |:-------------|:-----|
+  |  | HTTP Request type | Endpoint| Response  | Remarks|
+  |---- | ------------- |:-------------|:-----||
   |<ul><li>[x] done</li> | GET | api/hotels | all hotels ||
   |<ul><li>[x] done</li>| GET | api/hotels/name | one specific hotel| for hotels that have a space inside the name use %20 instead of the space, e.g. Ferienwohnungen%20Bernadette|
   |<ul><li>[ ] done</li>| GET | api/hotels/name/rooms | all rooms of the specific hotel||
   |<ul><li>[ ] done</li>| GET | api/hotel/name/images | all images of the hotel||
   |<ul><li>[ ] done</li>| GET | api/hotel/name/address | the address of the hotel||
   |<ul><li>[ ] done</li>| POST| api/hotels/TODO | create a new hotel||
-  |||TODO add more||||
+  |TODO||add more||add more|
 
 
 ### test and improve
-|  | HTTP Request type | Endpoint| Response  | Remarks
-|---- | ------------- |:-------------|:-----|
-|<ul><li>[x] done</li> | GET |http://localhost:3000/hotels| all hotels ||
+|  | HTTP Request type | Endpoint| Response  | Remarks|
+|---- | ------------- |:-------------|:-----||
+|<ul><li>[x] done</li> | GET |http://localhost:3000/hotels| all hotels |||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/hotels/Heisenhaus |||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/hotels/Ferienwohnungen%20Bernadette | Hotel name with space inside the name||
-|<ul><li>[x] done</li>| GET | http://localhost:3000/hotels/Haus%20Emilie%20&%20Apart%20Papilio%20im%20Naturpark | Hotel name with space and '&' inside the name|||
+|<ul><li>[x] done</li>| GET | http://localhost:3000/hotels/Haus%20Emilie%20&%20Apart%20Papilio%20im%20Naturpark | Hotel name with space and '&' inside the name|'&' is treated normal|
