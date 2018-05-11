@@ -17,8 +17,8 @@ Topic: Hotel Booking API
 
 ## TODOs
 ### design the REST API
-  - [ ] identify 10 resources
-  - [x] identify at least one action per resource (`GET`, `POST`)
+  - [x] identify 10 resources (hotels, rooms, location, images, contact, prices, payments, bookings, facilities, users)
+  - [x] identify at least one action per resource (`GET`, `POST`, `PUT`)
   - [ ] define fields of the resources that can be queried and fields that will be exposed
   - [ ] define the api syntax for each action on resources (including the http actions and the http error codes)
   - [x] decide upon the data format (xml/json/other): JSON
@@ -32,8 +32,8 @@ Topic: Hotel Booking API
   - [ ] add paging for the get request (`/hotels`)
   - [ ] add navigation (HATEOS)
   - [x] how to define facilities for hotel/room? There is no data in the dataset regarding facilities, so we create an endpoint and add facilities exclusively through the api
-  - [ ] how to define availability for rooms? Currently the db has the schema.org value InStock for all entries. So we ignore this field for now. We should handle availability/booking differently somehow. Ideea: to create an own endpoint for bookings (fields: `from`, `to`, `user`).
-  - [ ] how to implement booking of rooms????????? since the assignment is called "Hotel Booking API"!!! See the line above, by creating an own endpoint. Availability and bookings are merged together into one endpoint called 'booking'. The booked periods (`from`,`to`) mark the periods where the rooms are booked and where they are not available for new bookings.  
+  - [x] how to define availability for rooms? Currently the db has the schema.org value InStock for all entries. So we ignore this field for now. We should handle availability/booking differently somehow. Ideea: to create an own endpoint for bookings (fields: `from`, `to`, `firstname` and `lastname` of the guest, `numberOfRooms` which the guest booked).
+  - [x] how to implement booking of rooms????????? since the assignment is called "Hotel Booking API"!!! See the line above, by creating an own endpoint. Availability and bookings are merged together into one endpoint called 'booking'. The booked periods (`from`,`to`) mark the periods where the rooms are booked and where they are not available for new bookings. There is no check made for colliding booking periods. This is a nice to have feature for the future :)
 
 
  ### Error codes
@@ -59,8 +59,11 @@ Topic: Hotel Booking API
   |--- | --- | :--- | :--- | --- |
   |<ul><li>[x] done</li> | GET | api/hotels | `200 OK` | lists all hotels |
   |<ul><li>[ ] TODO</li> | POST | api/hotels | `201 Created` or <TODO\> code in case of error| adds a new hotel |
+  |<ul><li>[ ] TODO</li> | PUT | api/hotels | `200 OK` or `500` in case of error| updates an existing hotel data |
   |<ul><li>[x] done</li>| GET | api/hotels/<name\> | `200 OK` or `404 Not Found` | returns one hotel|
   |<ul><li>[ ] TODO</li> | DELETE | api/hotels/<name\> | `201 Created` or `404 Not Found` |deletes the hotel |
+  |<ul><li>[ ] TODO</li>| GET | api/hotels/<name\>/<contact\> | `200 OK` or `404 Not Found` | returns the contact data of a hotel|
+  |<ul><li>[ ] TODO</li> | POST | api/hotels/<name\>/<contact\> | `201 Created` or `404 Not Found` |adds contact for a hotel |
   |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms |`200 OK` or `404 Not Found`| all rooms of the specific hotel, or error in case the hotel is not found|
   |<ul><li>[ ] TODO</li>| POST | api/hotels/<name\>/rooms | `201 Created` or <TODO\> code in case of error| adds a new room|
   |<ul><li>[ ] TODO</li>| DELETE | api/hotels/<name\>/rooms/<room_name\> | TODO | delete one room|
