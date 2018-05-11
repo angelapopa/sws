@@ -9,7 +9,9 @@ import {
     getHotelRooms,
     getHotelRoomPrices,
     getHotelRoomBookings,
-    addHotelRoomBookings
+    addNewHotelRoomBooking,
+    getHotelContacts,
+    addNewHotelContact
  } from "../controllers/hotelController";
 
 const routes = (app) => {
@@ -35,6 +37,12 @@ const routes = (app) => {
     }, (req, res) => 
         console.log("Some text")
     );
+
+    app.route('/api/hotels/:name/contacts')
+    .get((req, res, next) => {
+        next();
+    }, getHotelContacts)
+    .post(addNewHotelContact);
 
     app.route('/api/hotels/:name/images')
     .get((req, res, next) => {
@@ -71,7 +79,7 @@ const routes = (app) => {
     .get((req, res, next) => {
         next();
     }, getHotelRoomBookings)
-    .post(addHotelRoomBookings);
+    .post(addNewHotelRoomBooking);
 
     //TODO add other endpoints
 }

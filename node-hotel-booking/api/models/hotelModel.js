@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import {ContactSchema} from './contactModel';
 import {RoomSchema} from './roomModel';
 
 const Schema = mongoose.Schema;
@@ -13,6 +14,7 @@ export const HotelSchema = new Schema({
         type: String,
         required: 'Enter a description for the hotel'
     },
+    contacts: [ContactSchema],
     currenciesAccepted: {
         type: String,
         required: 'Enter the accepted currency'
