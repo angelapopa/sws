@@ -5,14 +5,20 @@ import {
     getHotelImages,
     getHotelLocation,
     getHotelsAtLocation,
-    getHotelPayments,
-    getHotelRooms,
-    getHotelRoomPrices,
-    getHotelRoomBookings,
-    addNewHotelRoomBooking,
+    getHotelPayments
+ } from "../controllers/hotelController";
+ import { 
     getHotelContacts,
     addNewHotelContact
- } from "../controllers/hotelController";
+ } from "../controllers/contactController";
+ import { 
+    getHotelRooms,
+    getHotelRoomPrices
+ } from "../controllers/roomController";
+ import { 
+    getHotelRoomBookings,
+    addNewHotelRoomBooking
+ } from "../controllers/bookingController";
 
 const routes = (app) => {
 
