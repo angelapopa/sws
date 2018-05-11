@@ -76,8 +76,8 @@ Topic: Hotel Booking API
   |<ul><li>[x] done</li>| GET | api/locations/<location\>/hotels | `200` or `404`| all hotels at the named location|
   |<ul><li>[ ] TODO</li>| GET | api/users | `200` or `404`| all users|
   |<ul><li>[ ] TODO</li>| POST | api/users | `201 Created` or <TODO\> code in case of error|adds a new user|
-  |<ul><li>[ ] TODO</li>| GET | api/hotels/<name\>/rooms/<room_name\>/bookings |hotel room bookings | there is no data in the db yet, we should add some manually through a POST|
-  |<ul><li>[ ] TODO</li>| POST | api/hotels/<name\>/rooms/<room_name\>/bookings | Think of something how to handle this| TODO|
+  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms/<room_name\>/bookings |lists the hotel room bookings | |
+  |<ul><li>[x] done</li>| POST | api/hotels/<name\>/rooms/<room_name\>/bookings | adds a new booking| POST request body fields: `from`, `to`, `firstname`, `lastname`, `numberOfRooms`|
   |<ul><li>[ ] TODO</li>| DELETE | api/hotels/<name\>/rooms/<room_name\>/bookings/<from\>/<to\> | Think of something how to handle this| TODO|
 
 ### Test and improve
@@ -93,4 +93,6 @@ Topic: Hotel Booking API
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Alpen%20Appartment%20Relax/location | the postal address and the geo location of the hotel||
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/hotels/Stab-Hütte/payments | the currencies and payment posibilities that the hotel offers| |
 |<ul><li>[x] done</li>| GET | http://localhost:3000/api/locations/Ramsau/hotels| the postal address and the geo location of the hotel||
+|<ul><li>[x] done</li>| GET |http://localhost:3000/api/hotels/Tuxerhof/rooms/Appartement%2FFewo/bookings | all bookings for room Appartment Fewo||
+|<ul><li>[x] done</li>| POST |http://localhost:3000/api/hotels/Tuxerhof/rooms/Appartement%2FFewo/bookings | saves a new booking for Appartment Fewo ||
 |TODO||add test path for each endpoint||add more|

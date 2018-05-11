@@ -7,7 +7,9 @@ import {
     getHotelsAtLocation,
     getHotelPayments,
     getHotelRooms,
-    getHotelRoomPrices
+    getHotelRoomPrices,
+    getHotelRoomBookings,
+    addHotelRoomBookings
  } from "../controllers/hotelController";
 
 const routes = (app) => {
@@ -64,6 +66,12 @@ const routes = (app) => {
     .get((req, res, next) => {
         next();
     }, getHotelsAtLocation);
+
+    app.route('/api/hotels/:hotelName/rooms/:roomName/bookings')
+    .get((req, res, next) => {
+        next();
+    }, getHotelRoomBookings)
+    .post(addHotelRoomBookings);
 
     //TODO add other endpoints
 }
