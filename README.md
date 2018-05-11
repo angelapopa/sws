@@ -32,8 +32,8 @@ Topic: Hotel Booking API
   - [ ] add paging for the get request (`/hotels`)
   - [ ] add navigation (HATEOS)
   - [x] how to define facilities for hotel/room? There is no data in the dataset regarding facilities, so we create an endpoint and add facilities exclusively through the api
-  - [ ] how to define availability for rooms? Currently the db has the schema.org value InStock for all entries. So we ignore this info for now. We should handle availability/booking differently somehow.
-  - [ ] how to implement booking of rooms????????? since the assignment is called "Hotel Booking API"!!!
+  - [ ] how to define availability for rooms? Currently the db has the schema.org value InStock for all entries. So we ignore this field for now. We should handle availability/booking differently somehow. Ideea: to create an own endpoint for bookings (fields: `from`, `to`, `user`).
+  - [ ] how to implement booking of rooms????????? since the assignment is called "Hotel Booking API"!!! See the line above, by creating an own endpoint. Availability and bookings are merged together into one endpoint called 'booking'. The booked periods (`from`,`to`) mark the periods where the rooms are booked and where they are not available for new bookings.  
 
 
  ### Error codes
@@ -76,8 +76,9 @@ Topic: Hotel Booking API
   |<ul><li>[x] done</li>| GET | api/locations/<location\>/hotels | `200` or `404`| all hotels at the named location|
   |<ul><li>[ ] TODO</li>| GET | api/users | `200` or `404`| all users|
   |<ul><li>[ ] TODO</li>| POST | api/users | `201 Created` or <TODO\> code in case of error|adds a new user|
-  |<ul><li>[ ] TODO</li>| GET | hotel room avaliablility | Think of something how to handle this| TODO|
-  |<ul><li>[ ] TODO</li>| POST | book hotel room | Think of something how to handle this| TODO|
+  |<ul><li>[ ] TODO</li>| GET | api/hotels/<name\>/rooms/<room_name\>/bookings |hotel room bookings | there is no data in the db yet, we should add some manually through a POST|
+  |<ul><li>[ ] TODO</li>| POST | api/hotels/<name\>/rooms/<room_name\>/bookings | Think of something how to handle this| TODO|
+  |<ul><li>[ ] TODO</li>| DELETE | api/hotels/<name\>/rooms/<room_name\>/bookings/<from\>/<to\> | Think of something how to handle this| TODO|
 
 ### Test and improve
 
