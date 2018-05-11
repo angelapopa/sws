@@ -6,19 +6,7 @@ import {
     getHotelLocation,
     getHotelsAtLocation,
     getHotelPayments
- } from "../controllers/hotelController";
- import { 
-    getHotelContacts,
-    addNewHotelContact
- } from "../controllers/contactController";
- import { 
-    getHotelRooms,
-    getHotelRoomPrices
- } from "../controllers/roomController";
- import { 
-    getHotelRoomBookings,
-    addNewHotelRoomBooking
- } from "../controllers/bookingController";
+} from "../controllers/hotelController";
 
 const routes = (app) => {
 
@@ -44,12 +32,6 @@ const routes = (app) => {
         console.log("Some text")
     );
 
-    app.route('/api/hotels/:name/contacts')
-    .get((req, res, next) => {
-        next();
-    }, getHotelContacts)
-    .post(addNewHotelContact);
-
     app.route('/api/hotels/:name/images')
     .get((req, res, next) => {
         console.log("Searching images for " + req.params.name);
@@ -65,27 +47,6 @@ const routes = (app) => {
     .get((req, res, next) => {
         next();
     }, getHotelPayments);
-
-    app.route('/api/hotels/:name/rooms')
-    .get((req, res, next) => {
-        next();
-    }, getHotelRooms);
-
-    app.route('/api/hotels/:name/rooms/:roomName/prices')
-    .get((req, res, next) => {
-        next();
-    }, getHotelRoomPrices);
-
-    app.route('/api/locations/:locationName/hotels')
-    .get((req, res, next) => {
-        next();
-    }, getHotelsAtLocation);
-
-    app.route('/api/hotels/:hotelName/rooms/:roomName/bookings')
-    .get((req, res, next) => {
-        next();
-    }, getHotelRoomBookings)
-    .post(addNewHotelRoomBooking);
 
     //TODO add other endpoints
 }
