@@ -14,13 +14,28 @@ export const addNewHotel = (req, res) => {
     });
 };
 
-//TODO add paging
-export const getHotels = (req, res) => {
+export const getAllHotels = (req, res) => {
     Hotel.find({})
     .select(['name', 'url', 'description', 'priceRange', 'links'])
+    .sort({'name': 'ascending'})
     .exec(function (err, hotels){
         res.send(hotels);
     });
+};
+
+//TODO add fields like totalNumberOfPages, firstPage, lastPage etc.
+//by using some node js package dedicated for pagination
+export const getHotelsWithPagination = (req, res) => {
+    var perPage = 10
+    var page = req.params.page || 1
+    Hotel.find({})
+         .skip((perPage * page) - perPage)
+         .limit(perPage)
+         .select(['name', 'url', 'description', 'priceRange', 'links'])
+         .sort({'name': 'ascending'})
+         .exec(function(err, hotels) {
+            res.json(hotels);
+        });
 };
 
 export const getHotelByName = (req, res) => {

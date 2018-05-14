@@ -1,6 +1,7 @@
 import { 
     addNewHotel,
-    getHotels,
+    getAllHotels,
+    getHotelsWithPagination,
     getHotelByName,
     getHotelImages,
     getHotelLocation,
@@ -10,13 +11,19 @@ import {
 
 const routes = (app) => {
 
-    app.route('/api/hotels')
-    //GET endpoint
+    //GET all hotels
+    app.route('/api/hotels/')
     .get((req, res, next) => {
         next(); //continues with next function
-    }, getHotels)
+    }, getAllHotels)
     //POST endpoint
     .post(addNewHotel);
+
+    //GET hotels with pagination
+    app.route('/api/hotels/:page([0-9]+)/:')
+    .get((req, res, next) => {
+        next();
+    }, getHotelsWithPagination);
 
     app.route('/api/hotels/:name')
     .get((req, res, next) => {

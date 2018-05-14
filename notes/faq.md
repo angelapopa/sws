@@ -72,3 +72,5 @@ https://restfulapi.net/hateoas/
 http://www.baeldung.com/spring-hateoas-tutorial
 
 In this project the HATEOS links were added to the dataset for hotel and room objects. Only GET links were added.
+
+There are some useful npm packages (https://www.npmjs.com/package/express-hateoas-links, https://www.npmjs.com/package/hateoas). This were not used in this project. Maybe in a future stage of the prject.
