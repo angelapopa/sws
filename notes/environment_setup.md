@@ -24,7 +24,7 @@ Preparation:
 * import the dataset into a database schema and configure it's name in `server.js`
 
   ** import the file `dataset\hotels.json` with
-  `mongoimport --db swshotels --collection hotels --file "<path_to_project>\datasets\hotels.json"`
+  `mongoimport --db swshotels --collection hotels --file "<path_to_project>\datasets\hotels_enriched.json"`
 
 * install nodemon (`npm install --save nodemon`), this will update the js files on the servers on change
 

@@ -22,7 +22,7 @@ Topic: Hotel Booking API
   - [ ] define fields of the resources that can be queried and fields that will be exposed
   - [ ] define the api syntax for each action on resources (including the http actions and the http error codes)
   - [x] decide upon the data format (xml/json/other): JSON
-  - [ ] decide how the HATEOAS can be implemented in this API (`HATEOS navigation`, `pagination`, `sorting`, content-type in headers)
+  - [x] decide how the HATEOAS can be implemented in this API (`HATEOS navigation`, `pagination`, `sorting`, `content-type in headers`)
   - [x] define mockup api calls and responses
   - [ ] check if design guideliness were met
 
