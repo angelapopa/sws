@@ -5,7 +5,8 @@ import bodyParser from 'body-parser'; //allows to send data to DB through http
 import routes from './api/routes/hotels';
 import contactRoutes from './api/routes/contacts';
 import bookingRoutes from './api/routes/bookings';
-import roomRoutes from './api/routes/rooms'
+import roomRoutes from './api/routes/rooms';
+import locationRoutes from './api/routes/location';
 
 const app = express();
 const PORT = 3000;
@@ -27,6 +28,7 @@ routes(app);
 contactRoutes(app);
 bookingRoutes(app);
 roomRoutes(app);
+locationRoutes(app);
 
 app.get('/api', (req, res) => 
     res.send(`Node and express server is running on port ${PORT}`)

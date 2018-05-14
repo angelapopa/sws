@@ -20,7 +20,7 @@ const routes = (app) => {
     .post(addNewHotel);
 
     //GET hotels with pagination
-    app.route('/api/hotels/:page([0-9]+)/:')
+    app.route('/api/hotels/:page([0-9]+)')
     .get((req, res, next) => {
         next();
     }, getHotelsWithPagination);
