@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import {ContactSchema} from './contactModel';
 import {RoomSchema} from './roomModel';
+import {LinkSchema} from './linkModel';
 
 const Schema = mongoose.Schema;
 
@@ -27,7 +28,8 @@ export const HotelSchema = new Schema({
         url: { type: String},
         caption : { type: String}
     }],
-    makesOffer: [RoomSchema] //mongoose child subdocument
+    makesOffer: [RoomSchema], //mongoose child subdocument
+    links: [LinkSchema] //subdocument for HATEOS links
 
     //TODO add more fields (if needed)
 });
@@ -40,4 +42,4 @@ HotelSchema.method('toJSON', function() {
     delete hotel._id;
     delete hotel.__v;
     return hotel;
-  });
+});

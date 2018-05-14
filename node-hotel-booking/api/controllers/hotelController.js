@@ -1,8 +1,10 @@
 import mongoose from 'mongoose';
 import { HotelSchema } from '../models/hotelModel';
 import { ContactSchema } from '../models/contactModel';
+import { LinkSchema} from '../models/linkModel';
 
 const Hotel = mongoose.model('Hotel', HotelSchema);
+const Link = mongoose.model('Link', LinkSchema);
 
 export const addNewHotel = (req, res) => {
     let newHotel = new Hotel(req.body);
@@ -15,22 +17,23 @@ export const addNewHotel = (req, res) => {
 //TODO add paging
 export const getHotels = (req, res) => {
     Hotel.find({})
-    .select(['name', 'url', 'description', 'priceRange'])
-    .exec(function (err, hotel){
-        res.json(hotel);
+    .select(['name', 'url', 'description', 'priceRange', 'links'])
+    .exec(function (err, hotels){
+        res.send(hotels);
     });
 };
 
 export const getHotelByName = (req, res) => {
     let hotelName = req.params.name;
     Hotel.findOne({name:hotelName})
-    .select(['name', 'url', 'description', 'priceRange'])
+    .select(['name', 'url', 'description', 'priceRange', 'links'])
     .exec(function (err, hotel){
         if (hotel == null){
             console.log("The Hotel name "+ hotelName + " was not found!");
             res.status(404).send("The Hotel name "+ hotelName + " was not found!");
         }
         if (hotel != null){
+            console.log(hotel.name);
             res.status(200).json(hotel);
         }
     });

@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import {BookingSchema} from './bookingModel';
+import {LinkSchema} from './linkModel'
 
 const Schema = mongoose.Schema;
 
@@ -8,12 +9,13 @@ export const RoomSchema = new Schema({
     name : {type: String},
     description: {type: String},
     bookings: [BookingSchema],
-    priceSpecification: [{
+    priceSpecification: [{ //TODO consider moving this in its own schema
         description: {type: String},
         minPrice: {type: Number},
         maxPrice: {type: Number},
         priceCurrency: {type: String}
-    }]
+    }],
+    links: [LinkSchema]
  });
 
 //hiding mongo db fields
@@ -23,7 +25,7 @@ RoomSchema.method('toJSON', function() {
     var room = this.toObject();
     delete room._id;
     delete room.__v;
-    //availability has always schema.org value InStock, in the db, so it will not be displayed to the end user
+    //in this dataset, availability has always schema.org value InStock, so it will not be displayed to the end user
     delete room.availability;
     //price specification is handled in it's own endpoint
     delete room.priceSpecification;

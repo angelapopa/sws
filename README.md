@@ -22,7 +22,7 @@ Topic: Hotel Booking API
   - [ ] define fields of the resources that can be queried and fields that will be exposed
   - [ ] define the api syntax for each action on resources (including the http actions and the http error codes)
   - [x] decide upon the data format (xml/json/other): JSON
-  - [ ] decide how the HATEOAS can be implemented in this API
+  - [ ] decide how the HATEOAS can be implemented in this API (`HATEOS navigation`, pagination, sorting, content-type in headers)
   - [x] define mockup api calls and responses
   - [ ] check if design guideliness were met
 
@@ -37,8 +37,8 @@ Topic: Hotel Booking API
   - [x] create new model classes to fit the data from the new dataset (maybe not all fields from the db need to used in the model)
   - [x] try out GET, POST requests with the new data models on the new database `swshotels` (don't forget to change the db name in the `sever.js file`)
   - [ ] add paging for the get request (`/hotels`)
-  - [ ] add navigation (HATEOS)
-  - [x] how to define facilities for hotel/room? There is no data in the dataset regarding facilities, so we create an endpoint and add facilities exclusively through the api
+  - [x] add navigation (HATEOS) (https://restfulapi.net/hateoas/, https://spring.io/understanding/HATEOAS;). In this project the HATEOS links were added to the dataset for hotel and room objects. Only GET links were added. Please import the dataset hotels_enriched.json which has the needed links.
+  - [ ] how to define facilities for hotel/room? There is no data in the dataset regarding facilities, so we create an endpoint and add facilities exclusively through the api
   - [x] how to define availability for rooms? Currently the db has the schema.org value InStock for all entries. So we ignore this field for now. We should handle availability/booking differently somehow. Ideea: to create an own endpoint for bookings (fields: `from`, `to`, `firstname` and `lastname` of the guest, `numberOfRooms` which the guest booked).
   - [x] how to implement booking of rooms????????? since the assignment is called "Hotel Booking API"!!! See the line above, by creating an own endpoint. Availability and bookings are merged together into one endpoint called 'booking'. The booked periods (`from`,`to`) mark the periods where the rooms are booked and where they are not available for new bookings. There is no check made for colliding booking periods. This is a nice to have feature for the future :)
   - [ ] implement a `PUT` and a `DELETE` request for at least one endpoint

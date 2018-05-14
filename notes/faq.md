@@ -64,3 +64,11 @@ export const roomSchema = new Schema({
  });
 ```
 http://mongoosejs.com/docs/subdocs.html
+
+#### What is HATEOS navigation?
+
+https://restfulapi.net/hateoas/
+
+http://www.baeldung.com/spring-hateoas-tutorial
+
+In this project the HATEOS links were added to the dataset for hotel and room objects. Only GET links were added.
