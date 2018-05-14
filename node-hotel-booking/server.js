@@ -24,6 +24,13 @@ app.use(bodyParser.json());
 // use express json (as an alternative to bodyparser)
 app.use(express.json());
 
+// Set content type
+app.use(function (req, res, next) {
+    res.setHeader("Content-Type", 'application/json');
+    res.contentType('application/json');
+    next();
+  });
+
 routes(app);
 contactRoutes(app);
 bookingRoutes(app);
