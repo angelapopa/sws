@@ -14,9 +14,10 @@ HotelSchema.method('toJSON', function() {
     return hotel;
   });
 ```
+Note: The above does not work for subdocuments.
+
 An alternative solution would be to exclude it in all mongodb queries:
 
-(not tested yet!)
 ```
 Hotel.find({})
  .select{'name': 1, 'description':1, _id: 0, _v:0 }
