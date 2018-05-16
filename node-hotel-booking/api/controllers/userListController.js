@@ -1,9 +1,7 @@
-
-
 import mongoose from 'mongoose';
-import UserSchema from '../models/userListModel';
+import {UserSchema} from '../models/userListModel';
 
- const User = mongoose.model('Users', UserSchema);
+const User = mongoose.model('User', UserSchema);
 
 export const  create_a_user = (req, res) => {
     let new_user = new User(req.body);
@@ -13,18 +11,14 @@ export const  create_a_user = (req, res) => {
     });
 };
 
-
 export const  list_all_users = (req, res) =>{
     User.find({}, function (err, user) {
         if (err)
             res.send(err);
         res.json(user);
     });
-    //missed semicolumn
 };
 console.log ('controller works fine too');
-
-
 
 export const read_a_user = (req, res) =>{
     User.findById(req.params.userId, function (err, user) {

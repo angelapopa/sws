@@ -66,31 +66,32 @@ Topic: Hotel Booking API
 
   |  | HTTP Request type | Endpoint| Resulting HTTP Code| Resulting action  |
   |--- | --- | :--- | :--- | --- |
-  |<ul><li>[x] done</li> | GET | api/hotels | `200 OK` | lists all hotels |
-  |<ul><li>[ ] TODO</li> | POST | api/hotels | `201 Created` or <TODO\> code in case of error| adds a new hotel |
-  |<ul><li>[ ] TODO</li> | PUT | api/hotels | `200 OK` or `500` in case of error| updates an existing hotel data |
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\> | `200 OK` or `404 Not Found` | returns one hotel|
-  |<ul><li>[ ] TODO</li> | DELETE | api/hotels/<name\> | `201 Created` or `404 Not Found` |deletes the hotel |
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/contacts | `200 OK` or `404 Not Found` | returns the contact data of a hotel|
-  |<ul><li>[x] done</li> | POST | api/hotels/<name\>/contacts | `201 Created` or `404 Not Found` |adds contact details for a hotel |
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms |`200 OK` or `404 Not Found`| all rooms of the specific hotel, or error in case the hotel is not found|
-  |<ul><li>[ ] TODO</li>| POST | api/hotels/<name\>/rooms | `201 Created` or <TODO\> code in case of error| adds a new room|
-  |<ul><li>[ ] TODO</li>| DELETE | api/hotels/<name\>/rooms/<room_name\> | TODO | delete one room|
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms/<room_name\>/prices | `200` or `404`| all prices for rooms of a specific hotel|
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/images | `200` or `404`| all images of the hotel|
-  |<ul><li>[x] done</li>| POST | api/hotels/<name\>/images | `201 Created` or `404 Not Found`| adds one image|
-  |<ul><li>[x] done</li>| DELETE | api/hotels/<name\>/images/<url\> | TODO| deletes one image|
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/location | `200 OK` or `404 Not Found`| the postal address and the geo location of the hotel|
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/payments | `200 OK` or `404 Not Found`| the currencies and payment posibilities that the hotel offers|
-  |<ul><li>[ ] TODO</li>| GET | api/hotel/<name\>/facilities | `200 OK` or `404 Not Found`|all facilities or emtpy list or error in case the hotel name is not found|
-  |<ul><li>[ ] TODO</li>| POST | api/hotel/<name\>/facilities | `201 Created` or `404 Not Found`| new facility|
-  |<ul><li>[ ] TODO</li>| DELETE | api/hotel/<name\>/facilities/<name\> | TODO| deletes one facility|
-  |<ul><li>[x] done</li>| GET | api/locations/<location\>/hotels | `200` or `404`| all hotels at the named location|
-  |<ul><li>[ ] TODO</li>| GET | api/users | `200` or `404`| all users|
-  |<ul><li>[ ] TODO</li>| POST | api/users | `201 Created` or <TODO\> code in case of error|adds a new user|
-  |<ul><li>[x] done</li>| GET | api/hotels/<name\>/rooms/<room_name\>/bookings |lists the hotel room bookings | |
-  |<ul><li>[x] done</li>| POST | api/hotels/<name\>/rooms/<room_name\>/bookings | adds a new booking| POST request body fields: `from`, `to`, `firstname`, `lastname`, `numberOfRooms`|
-  |<ul><li>[ ] TODO</li>| DELETE | api/hotels/<name\>/rooms/<room_name\>/bookings/<from\>/<to\> | Think of something how to handle this| TODO|
+  |<ul><li>[x] done</li> | GET | /api/hotels | `200 OK` | lists all hotels |
+  |<ul><li>[ ] TODO</li> | POST | /api/hotels | `201 Created` or <TODO\> code in case of error| adds a new hotel |
+  |<ul><li>[ ] TODO</li> | PUT | /api/hotels | `200 OK` or `500` in case of error| updates an existing hotel data |
+  |<ul><li>[x] done</li>| GET | /api/hotels/<name\> | `200 OK` or `404 Not Found` | returns one hotel|
+  |<ul><li>[ ] TODO</li> | DELETE | /api/hotels/<name\> | `201 Created` or `404 Not Found` |deletes the hotel |
+  |<ul><li>[x] done</li>| GET | /api/hotels/<name\>/contacts | `200 OK` or `404 Not Found` | returns the contact data of a hotel|
+  |<ul><li>[x] done</li> | POST | /api/hotels/<name\>/contacts | `201 Created` or `404 Not Found` |adds contact details for a hotel |
+  |<ul><li>[x] done</li>| GET | /api/hotels/<name\>/rooms |`200 OK` or `404 Not Found`| all rooms of the specific hotel, or error in case the hotel is not found|
+  |<ul><li>[ ] TODO</li>| POST | /api/hotels/<name\>/rooms | `201 Created` or <TODO\> code in case of error| adds a new room|
+  |<ul><li>[ ] TODO</li>| DELETE | /api/hotels/<name\>/rooms/<room_name\> | TODO | delete one room|
+  |<ul><li>[x] done</li>| GET | /api/hotels/<name\>/rooms/<room_name\>/prices | `200` or `404`| all prices for rooms of a specific hotel|
+  |<ul><li>[x] done</li>| GET | /api/hotels/<name\>/images | `200` or `404`| all images of the hotel|
+  |<ul><li>[x] done</li>| POST | /api/hotels/<name\>/images | `201 Created` or `404 Not Found`| adds one image|
+  |<ul><li>[x] done</li>| DELETE | /api/hotels/<name\>/images/<url\> | TODO| deletes one image|
+  |<ul><li>[x] done</li>| GET | /api/hotels/<name\>/location | `200 OK` or `404 Not Found`| the postal address and the geo location of the hotel|
+  |<ul><li>[x] done</li>| GET | /api/hotels/<name\>/payments | `200 OK` or `404 Not Found`| the currencies and payment posibilities that the hotel offers|
+  |<ul><li>[ ] TODO</li>| GET | /api/hotel/<name\>/facilities | `200 OK` or `404 Not Found`|all facilities or emtpy list or error in case the hotel name is not found|
+  |<ul><li>[ ] TODO</li>| POST | /api/hotel/<name\>/facilities | `201 Created` or `404 Not Found`| new facility|
+  |<ul><li>[ ] TODO</li>| DELETE | /api/hotel/<name\>/facilities/<name\> | TODO| deletes one facility|
+  |<ul><li>[x] done</li>| GET | /api/locations/<location\>/hotels | `200` or `404`| all hotels at the named location|
+  |<ul><li>[x] done</li>| GET | /api/hotels/<name\>/rooms/<room_name\>/bookings |lists the hotel room bookings | |
+  |<ul><li>[x] done</li>| POST | /api/hotels/<name\>/rooms/<room_name\>/bookings | adds a new booking| POST request body fields: `from`, `to`, `firstname`, `lastname`, `numberOfRooms`|
+  |<ul><li>[ ] TODO</li>| DELETE | /api/hotels/<name\>/rooms/<room_name\>/bookings/<from\>/<to\> | Think of something how to handle this| TODO|
+  |<ul><li>[x] TODO</li>| GET | /api/users | `200` or `404`| all users|
+  |<ul><li>[x] TODO</li>| GET | /api/users/<userId\> | `200` or `404`| one user by id|
+  |<ul><li>[x] TODO</li>| POST | /api/users | `201 Created` or <TODO\> code in case of error|adds a new user|
 
 ### Test and improve
 
@@ -109,4 +110,7 @@ Topic: Hotel Booking API
 |<ul><li>[x] done</li>| POST |http://localhost:3000/api/hotels/Tuxerhof/rooms/Appartement%2FFewo/bookings | saves a new booking for Appartment Fewo ||
 |<ul><li>[x] done</li>| GET| http://localhost:3000/api/hotels/Haus%20Leo/contacts |returns email, telephone and faxNumber for the given hotel||
 |<ul><li>[x] done</li>| POST| http://localhost:3000/api/hotels/Haus%20Leo/contacts |saves email, telephone and faxNumber for the given hotel||
+|<ul><li>[x] done</li>| POST| http://localhost:3000/api/users |returns all users||
+|<ul><li>[x] done</li>| POST| http://localhost:3000/api/users/5afc888bed29471e54bce756 |returns one user||
+|<ul><li>[x] done</li>| POST| http://localhost:3000/api/users |saves one user||
 |TODO||add test path for each endpoint||add more|
