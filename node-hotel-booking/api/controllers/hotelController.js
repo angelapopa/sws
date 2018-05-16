@@ -9,6 +9,62 @@ const Link = mongoose.model('Link', LinkSchema);
 export const addNewHotel = (req, res) => {
     let newHotel = new Hotel(req.body);
 
+    //add links to hotel at creation time
+    const root_url = "http://localhost:3000/api/hotels";
+    let formattedHotelName0 = newHotel.name.replace(/\s+/g, "%20");
+    let formattedHotelName = formattedHotelName0.replace(/\//g, "%2F");
+    let hotelUrlNamePart = root_url + "/" + formattedHotelName;
+
+    newHotel.links = [];
+
+    var newSelfLink0 = new Link ({
+        href: hotelUrlNamePart,
+        rel: "self",
+        type: "GET"
+    });
+
+    newHotel.links.push(newSelfLink0);
+
+    var newSelfLink = new Link ({
+        href: hotelUrlNamePart +"/images",
+        rel: "images",
+        type: "GET"
+    });
+
+    newHotel.links.push(newSelfLink);
+
+    var newSelfLink2 = new Link ({
+        href: hotelUrlNamePart +"/payments",
+        rel: "payments",
+        type: "GET"
+    });
+
+    newHotel.links.push(newSelfLink2);
+
+    var newSelfLink3 = new Link ({
+        href: hotelUrlNamePart +"/location",
+        rel: "location",
+        type: "GET"
+     });
+
+    newHotel.links.push(newSelfLink3);
+
+    var newSelfLink4 = new Link ({
+        href: hotelUrlNamePart +"/rooms",
+        rel: "rooms",
+        type: "GET"
+     });
+
+    newHotel.links.push(newSelfLink4);
+
+    var newSelfLink6 = new Link ({
+        href: hotelUrlNamePart +"/contacts",
+        rel: "contacts",
+        type: "GET"
+     });
+
+    newHotel.links.push(newSelfLink6);
+
     newHotel.save((err, hotel) => {
         res.status(201).json(hotel);
     });
@@ -48,7 +104,6 @@ export const getHotelByName = (req, res) => {
             res.status(404).send("The Hotel name "+ hotelName + " was not found!");
         }
         if (hotel != null){
-            console.log(hotel.name);
             res.status(200).json(hotel);
         }
     });
@@ -95,6 +150,30 @@ export const getHotelPayments = (req, res) => {
         if (hotel != null){
             res.status(200).json(hotel);
         }
+    });
+};
+
+export const deleteHotel = (req, res) => {
+    let hotelName = req.params.name;
+    Hotel.findOne({"name":hotelName})
+    .exec(function (err, hotel){
+        if (hotel == null){
+            console.log("The Hotel name "+ hotelName + " was not found!");
+            res.status(404).send("The Hotel name "+ hotelName + " was not found!");
+        }
+    });
+    Hotel.deleteOne({"name":hotelName})
+    .exec(function (err){
+        res.status(204).send("Deleted");
+    });
+};
+
+export const updateHotel = (req, res) => {
+    let hotelName = req.params.name;
+
+    Hotel.findOneAndUpdate({"name":hotelName}, req.body, function(err, uhotel){
+        if (err) return handleError(err);
+        res.status(200).json(uhotel);
     });
 };
 

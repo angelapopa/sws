@@ -18,10 +18,6 @@ mongoose.connect('mongodb://localhost/swshotels', {
     useMongoCLient: true
 });
 
-mongoose.connect('mongodb://localhost/userdb', {
-    useMongoCLient: true
-});
-
 // bodyparser setup
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());

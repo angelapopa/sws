@@ -67,10 +67,10 @@ Topic: Hotel Booking API
   |  | HTTP Request type | Endpoint| Resulting HTTP Code| Resulting action  |
   |--- | --- | :--- | :--- | --- |
   |<ul><li>[x] done</li> | GET | /api/hotels | `200 OK` | lists all hotels |
-  |<ul><li>[ ] TODO</li> | POST | /api/hotels | `201 Created` or <TODO\> code in case of error| adds a new hotel |
-  |<ul><li>[ ] TODO</li> | PUT | /api/hotels | `200 OK` or `500` in case of error| updates an existing hotel data |
+  |<ul><li>[x] TODO</li> | POST | /api/hotels | `201 Created` or <TODO\> code in case of error| adds a new hotel |
+  |<ul><li>[x] TODO</li> | PUT | /api/hotels | `200 OK` or `500` in case of error| updates an existing hotel data |
   |<ul><li>[x] done</li>| GET | /api/hotels/<name\> | `200 OK` or `404 Not Found` | returns one hotel|
-  |<ul><li>[ ] TODO</li> | DELETE | /api/hotels/<name\> | `201 Created` or `404 Not Found` |deletes the hotel |
+  |<ul><li>[x] TODO</li> | DELETE | /api/hotels/<name\> | `201 Created` or `404 Not Found` |deletes the hotel |
   |<ul><li>[x] done</li>| GET | /api/hotels/<name\>/contacts | `200 OK` or `404 Not Found` | returns the contact data of a hotel|
   |<ul><li>[x] done</li> | POST | /api/hotels/<name\>/contacts | `201 Created` or `404 Not Found` |adds contact details for a hotel |
   |<ul><li>[x] done</li>| GET | /api/hotels/<name\>/rooms |`200 OK` or `404 Not Found`| all rooms of the specific hotel, or error in case the hotel is not found|

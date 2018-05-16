@@ -6,7 +6,9 @@ import {
     getHotelImages,
     getHotelLocation,
     getHotelsAtLocation,
-    getHotelPayments
+    getHotelPayments,
+    updateHotel,
+    deleteHotel
 } from "../controllers/hotelController";
 
 const routes = (app) => {
@@ -30,14 +32,8 @@ const routes = (app) => {
         console.log("Search request for " + req.params.name);
         next();
     }, getHotelByName)
-  
-    .delete((req, res, next) => {
-        console.log("Not supported yet");
-        //TODO
-        next();
-    }, (req, res) => 
-        console.log("Some text")
-    );
+    .put(updateHotel)
+    .delete(deleteHotel);
 
     app.route('/api/hotels/:name/images')
     .get((req, res, next) => {

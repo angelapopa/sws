@@ -11,6 +11,10 @@ export const HotelSchema = new Schema({
         type: String,
         required: 'Enter a Hotel name'
     },
+    url: {
+        type: String,
+        required: 'Enter a Hotel name'
+    },
     description: {
         type: String,
         required: 'Enter a description for the hotel'
