@@ -65,17 +65,114 @@ export const addNewHotel = (req, res) => {
 
     newHotel.links.push(newSelfLink6);
 
+    var newSelfLink7 = new Link ({
+        href: hotelUrlNamePart +"/facilities",
+        rel: "facilities",
+        type: "GET"
+     });
+
+    newHotel.links.push(newSelfLink7);
+
     newHotel.save((err, hotel) => {
         res.status(201).json(hotel);
     });
 };
 
+/*
 export const getAllHotels = (req, res) => {
     Hotel.find({})
     .select(['name', 'url', 'description', 'priceRange', 'links'])
     .sort({'name': 'ascending'})
     .exec(function (err, hotels){
         res.send(hotels);
+    });
+};*/
+
+
+export const getAllHotels = (req, res) => {
+    const root_url = "http://localhost:3000/api/hotels"; //TODO consider making this somehow more configurable
+    Hotel.find({})
+    //.select(['name', 'url', 'description', 'priceRange', 'links'])
+    .exec(function (err, hotels){
+        var enrichedHotels = [];
+
+        hotels.forEach(function(hotel) {
+            //since our dataset is not populated with HATEOS links, we construct them at every GET request
+
+               let formattedHotelName0 = hotel.name.replace(/\s+/g, "%20");
+               let formattedHotelName = formattedHotelName0.replace(/\//g, "%2F");
+               let hotelUrlNamePart = root_url + "/" + formattedHotelName;
+
+               hotel.links = [];
+
+               var newSelfLink0 = new Link ({
+                href: hotelUrlNamePart,
+                rel: "self",
+                type: "GET"
+                });
+
+                hotel.links.push(newSelfLink0);
+
+               var newSelfLink = new Link ({
+                   href: hotelUrlNamePart +"/images",
+                   rel: "images",
+                   type: "GET"
+               });
+
+               hotel.links.push(newSelfLink);
+
+               var newSelfLink2 = new Link ({
+                href: hotelUrlNamePart +"/payments",
+                rel: "payments",
+                type: "GET"
+                });
+
+                hotel.links.push(newSelfLink2);
+
+                var newSelfLink3 = new Link ({
+                    href: hotelUrlNamePart +"/location",
+                    rel: "location",
+                    type: "GET"
+                });
+    
+                hotel.links.push(newSelfLink3);
+
+                var newSelfLink4 = new Link ({
+                    href: hotelUrlNamePart +"/rooms",
+                    rel: "rooms",
+                    type: "GET"
+                });
+    
+                hotel.links.push(newSelfLink4);
+
+                var newSelfLink6 = new Link ({
+                    href: hotelUrlNamePart +"/contacts",
+                    rel: "contacts",
+                    type: "GET"
+                });
+    
+                hotel.links.push(newSelfLink6);
+
+                var newSelfLink7 = new Link ({
+                    href: hotelUrlNamePart +"/facilities",
+                    rel: "facilities",
+                    type: "GET"
+                 });
+            
+                hotel.links.push(newSelfLink7);
+
+              hotel.save((err, savedHotel) => {
+                 
+               });
+
+               enrichedHotels.push(hotel);
+               
+
+       });
+
+
+        res.send(enrichedHotels);
+        //res.send(hotels);
     });
 };
 

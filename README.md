@@ -82,8 +82,8 @@ Topic: Hotel Booking API
   |<ul><li>[x] done</li>| DELETE | /api/hotels/<name\>/images/<url\> | TODO| deletes one image|
   |<ul><li>[x] done</li>| GET | /api/hotels/<name\>/location | `200 OK` or `404 Not Found`| the postal address and the geo location of the hotel|
   |<ul><li>[x] done</li>| GET | /api/hotels/<name\>/payments | `200 OK` or `404 Not Found`| the currencies and payment posibilities that the hotel offers|
-  |<ul><li>[ ] TODO</li>| GET | /api/hotel/<name\>/facilities | `200 OK` or `404 Not Found`|all facilities or emtpy list or error in case the hotel name is not found|
-  |<ul><li>[ ] TODO</li>| POST | /api/hotel/<name\>/facilities | `201 Created` or `404 Not Found`| new facility|
+  |<ul><li>[x] TODO</li>| GET | /api/hotel/<name\>/facilities | `200 OK` or `404 Not Found`|all facilities or emtpy list or error in case the hotel name is not found|
+  |<ul><li>[x] TODO</li>| POST | /api/hotel/<name\>/facilities | `201 Created` or `404 Not Found`| new facility|
   |<ul><li>[ ] TODO</li>| DELETE | /api/hotel/<name\>/facilities/<name\> | TODO| deletes one facility|
   |<ul><li>[x] done</li>| GET | /api/locations/<location\>/hotels | `200` or `404`| all hotels at the named location|
   |<ul><li>[x] done</li>| GET | /api/hotels/<name\>/rooms/<room_name\>/bookings |lists the hotel room bookings | |
@@ -110,6 +110,8 @@ Topic: Hotel Booking API
 |<ul><li>[x] done</li>| POST |http://localhost:3000/api/hotels/Tuxerhof/rooms/Appartement%2FFewo/bookings | saves a new booking for Appartment Fewo ||
 |<ul><li>[x] done</li>| GET| http://localhost:3000/api/hotels/Haus%20Leo/contacts |returns email, telephone and faxNumber for the given hotel||
 |<ul><li>[x] done</li>| POST| http://localhost:3000/api/hotels/Haus%20Leo/contacts |saves email, telephone and faxNumber for the given hotel||
+|<ul><li>[x] done</li>| GET| http://localhost:3000/api/hotels/Haus%20Leo/facilities |returns the facilities of the given hotel||
+|<ul><li>[x] done</li>| POST| http://localhost:3000/api/hotels/Haus%20Leo/facilities |saves a facility for the given hotel||
 |<ul><li>[x] done</li>| POST| http://localhost:3000/api/users |returns all users||
 |<ul><li>[x] done</li>| POST| http://localhost:3000/api/users/5afc888bed29471e54bce756 |returns one user||
 |<ul><li>[x] done</li>| POST| http://localhost:3000/api/users |saves one user||

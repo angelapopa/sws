@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import {ContactSchema} from './contactModel';
 import {RoomSchema} from './roomModel';
 import {LinkSchema} from './linkModel';
+import {FacilitySchema} from './facilityModel';
 
 const Schema = mongoose.Schema;
 
@@ -33,7 +34,8 @@ export const HotelSchema = new Schema({
         caption : { type: String}
     }],
     makesOffer: [RoomSchema], //mongoose child subdocument
-    links: [LinkSchema] //subdocument for HATEOS links
+    facilities: [FacilitySchema],
+    links: [LinkSchema], //subdocument for HATEOS links
 
     //TODO add more fields (if needed)
 });

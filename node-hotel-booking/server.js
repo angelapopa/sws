@@ -7,6 +7,7 @@ import contactRoutes from './api/routes/contacts';
 import bookingRoutes from './api/routes/bookings';
 import roomRoutes from './api/routes/rooms';
 import locationRoutes from './api/routes/location';
+import facilityRoutes from './api/routes/facilities';
 import userRoutes from './api/routes/userListRoutes';
 
 const app = express();
@@ -37,6 +38,7 @@ contactRoutes(app);
 bookingRoutes(app);
 roomRoutes(app);
 locationRoutes(app);
+facilityRoutes(app);
 userRoutes(app);
 
 app.get('/api', (req, res) => 
