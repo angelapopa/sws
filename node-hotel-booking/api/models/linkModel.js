@@ -18,3 +18,4 @@ LinkSchema.method('toJSON', function() {
     delete link.__v;
     return link;
   });
+  console.log('');

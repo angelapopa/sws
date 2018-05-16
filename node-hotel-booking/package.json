@@ -1,5 +1,5 @@
 {
-  "name": "node-hotel-booking",
+  "name": "hotel-booking",
   "version": "1.0.0",
   "main": "server.js",
   "description": "SWS Rest API Hotel Booking",

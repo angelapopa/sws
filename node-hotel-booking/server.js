@@ -7,13 +7,19 @@ import contactRoutes from './api/routes/contacts';
 import bookingRoutes from './api/routes/bookings';
 import roomRoutes from './api/routes/rooms';
 import locationRoutes from './api/routes/location';
+import  userRoutes from './api/routes/userListRoutes';
 
 const app = express();
-const PORT = 3000;
+const PORT = 3000; 
+//const User= require ("./api/models/userListModel");
+
 
 //mongoose connection
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/swshotels', {
+    useMongoCLient: true
+});
+mongoose.connect('mongodb://localhost/userdb', {
     useMongoCLient: true
 });
 
@@ -36,6 +42,7 @@ contactRoutes(app);
 bookingRoutes(app);
 roomRoutes(app);
 locationRoutes(app);
+userRoutes(app);
 
 app.get('/api', (req, res) => 
     res.send(`Node and express server is running on port ${PORT}`)
