@@ -27,11 +27,11 @@ Topic: Hotel Booking API
   - [ ] check if design guideliness were met
 
 ### create a Report of this Project
-  - [ ] include a list of all identified resources
-  - [ ] include a list of all endpoints
-  - [ ] explain why we have chosen the semantify dataset
-  - [ ] explain which information is included in this dataset and which is not included
-  - [ ] add for each endpoint an example, with a request path and a json result object
+  - [x] include a list of all identified resources
+  - [x] include a list of all endpoints
+  - [x] explain why we have chosen the semantify dataset
+  - [x] explain which information is included in this dataset and which is not included
+  - [x] add for each endpoint an example, with a request path and a json result object
 
 ### start implementing :)
   - [x] create new model classes to fit the data from the new dataset (maybe not all fields from the db need to used in the model)
