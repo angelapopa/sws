@@ -19,8 +19,8 @@ Topic: Hotel Booking API
 ### design the REST API
   - [x] identify 10 resources (`hotels`, `rooms`, `location`, `images`, `contacts`, `prices`, `payments`, `bookings`, `facilities`, `users`)
   - [x] identify at least one action per resource (`GET`, `POST`, `PUT`)
-  - [ ] define fields of the resources that can be queried and fields that will be exposed
-  - [ ] define the api syntax for each action on resources (including the http actions and the http error codes)
+  - [x] define fields of the resources that can be queried and fields that will be exposed
+  - [x] define the api syntax for each action on resources (including the http actions and the http error codes)
   - [x] decide upon the data format (xml/json/other): JSON
   - [x] decide how the HATEOAS can be implemented in this API (`HATEOS navigation`, `pagination`, `sorting`, `content-type in headers`)
   - [x] define mockup api calls and responses
