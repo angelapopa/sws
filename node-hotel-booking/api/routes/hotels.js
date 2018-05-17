@@ -5,7 +5,6 @@ import {
     getHotelByName,
     getHotelImages,
     getHotelLocation,
-    getHotelsAtLocation,
     getHotelPayments,
     updateHotel,
     deleteHotel

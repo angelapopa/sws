@@ -21,4 +21,12 @@ export  const UserSchema = new Schema({
    }
 });
 
-console.log ('we are in model');
+//hiding mongo db fields
+//from the json object that is returned
+//by a GET request
+UserSchema.method('toJSON', function() {
+    var user = this.toObject();
+    delete user._id;
+    delete user.__v;
+    return user;
+  });

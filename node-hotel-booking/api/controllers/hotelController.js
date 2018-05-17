@@ -223,7 +223,7 @@ export const getHotelImages = (req, res) => {
 export const getHotelLocation = (req, res) => {
     let hotelName = req.params.name;
     Hotel.findOne({name:hotelName})
-    .select(['address', 'geo'])
+    .select(['address.name','address.streetAddress', 'address.addressLocality','address.postalCode','address.addressCountry', 'geo'])
     .exec(function (err, hotel){
         if (hotel == null){
             console.log("The Hotel name "+ hotelName + " was not found!");

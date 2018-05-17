@@ -27,10 +27,10 @@ Topic: Hotel Booking API
   - [ ] check if design guideliness were met
 
 ### create a Report of this Project
-  - [ ] include a list of all identifeid resources
+  - [ ] include a list of all identified resources
   - [ ] include a list of all endpoints
   - [ ] explain why we have chosen the semantify dataset
-  - [ ] explain which information is included in thid dataset and which is not included
+  - [ ] explain which information is included in this dataset and which is not included
   - [ ] add for each endpoint an example, with a request path and a json result object
 
 ### start implementing :)
@@ -78,8 +78,8 @@ Topic: Hotel Booking API
   |<ul><li>[ ] TODO</li>| DELETE | /api/hotels/<name\>/rooms/<room_name\> | TODO | delete one room|
   |<ul><li>[x] </li>| GET | /api/hotels/<name\>/rooms/<room_name\>/prices | `200` or `404`| all prices for rooms of a specific hotel|
   |<ul><li>[x] </li>| GET | /api/hotels/<name\>/images | `200` or `404`| all images of the hotel|
-  |<ul><li>[x] </li>| POST | /api/hotels/<name\>/images | `201 Created` or `404 Not Found`| adds one image|
-  |<ul><li>[x] </li>| DELETE | /api/hotels/<name\>/images/<url\> | TODO| deletes one image|
+  |<ul><li>[ ] TODO </li>| POST | /api/hotels/<name\>/images | `201 Created` or `404 Not Found`| adds one image|
+  |<ul><li>[ ] TODO </li>| DELETE | /api/hotels/<name\>/images/<url\> | TODO| deletes one image|
   |<ul><li>[x] </li>| GET | /api/hotels/<name\>/location | `200 OK` or `404 Not Found`| the postal address and the geo location of the hotel|
   |<ul><li>[x] </li>| GET | /api/hotels/<name\>/payments | `200 OK` or `404 Not Found`| the currencies and payment posibilities that the hotel offers|
   |<ul><li>[x] </li>| GET | /api/hotel/<name\>/facilities | `200 OK` or `404 Not Found`|all facilities or emtpy list or error in case the hotel name is not found|
