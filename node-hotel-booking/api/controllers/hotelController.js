@@ -78,7 +78,7 @@ export const addNewHotel = (req, res) => {
     });
 };
 
-/*
+
 export const getAllHotels = (req, res) => {
     Hotel.find({})
     .select(['name', 'url', 'description', 'priceRange', 'links'])
@@ -86,9 +86,9 @@ export const getAllHotels = (req, res) => {
     .exec(function (err, hotels){
         res.send(hotels);
     });
-};*/
+};
 
-
+/* misuse of the get operation, to import link data into the db
 export const getAllHotels = (req, res) => {
     const root_url = "http://localhost:3000/api/hotels"; //TODO consider making this somehow more configurable
     Hotel.find({})
@@ -174,7 +174,7 @@ export const getAllHotels = (req, res) => {
         res.send(enrichedHotels);
         //res.send(hotels);
     });
-};
+};*/
 
 //TODO add fields like totalNumberOfPages, firstPage, lastPage etc.
 //by using some node js package dedicated for pagination

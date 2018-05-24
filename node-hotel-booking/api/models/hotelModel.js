@@ -35,7 +35,7 @@ export const HotelSchema = new Schema({
     }],
     makesOffer: [RoomSchema], //mongoose child subdocument
     facilities: [FacilitySchema],
-    links: [LinkSchema], //subdocument for HATEOS links
+    links: [LinkSchema], //subdocument for HATEOAS links
 
     //TODO add more fields (if needed)
 });
