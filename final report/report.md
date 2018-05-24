@@ -311,47 +311,48 @@ GET http://localhost:3000/api/locations/Hippach/hotels/9
        "links": [
            {
                "_id": "5afcbcb1182d6018a87bfa0f",
-               "href": "http://localhost:3000/api/hotels/Haus%20Kirchler",
+               "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcf0,
                "rel": "self",
                "type": "GET"
            },
            {
                "_id": "5afcbcb1182d6018a87bfa11",
-               "href": "http://localhost:3000/api/hotels/Haus%20Kirchler/images",
+               "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcf0/images",
                "rel": "images",
                "type": "GET"
            },
            {
                "_id": "5afcbcb1182d6018a87bfa13",
-               "href": "http://localhost:3000/api/hotels/Haus%20Kirchler/payments",
+               "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcf0/payments",
                "rel": "payments",
                "type": "GET"
            },
            {
                "_id": "5afcbcb1182d6018a87bfa15",
-               "href": "http://localhost:3000/api/hotels/Haus%20Kirchler/location",
+               "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcf0/location",
                "rel": "location",
                "type": "GET"
            },
            {
                "_id": "5afcbcb1182d6018a87bfa17",
-               "href": "http://localhost:3000/api/hotels/Haus%20Kirchler/rooms",
+               "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcf0/rooms",
                "rel": "rooms",
                "type": "GET"
            },
            {
                "_id": "5afcbcb1182d6018a87bfa19",
-               "href": "http://localhost:3000/api/hotels/Haus%20Kirchler/contacts",
+               "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcf0/contacts",
                "rel": "contacts",
                "type": "GET"
            },
            {
                "_id": "5afcbcb1182d6018a87bfa1b",
-               "href": "http://localhost:3000/api/hotels/Haus%20Kirchler/facilities",
+               "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcf0/facilities",
                "rel": "facilities",
                "type": "GET"
            }
        ],
+       "_id": "5aeb56f1eb089a6227c8fcf0",
        "url": "http://",
        "address": {
            "streetAddress": "Schwendberg 365",
@@ -449,6 +450,9 @@ Results in
     "email": "test2@test.com"
 }
 ```
+
+### Current work
+ * hydra annotations
 
 ### Future work
   * the dataset contains contact data inside the postal address element. Merge this into the current `/contact` endpoint data.
