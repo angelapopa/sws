@@ -14,7 +14,6 @@ export const LinkSchema = new Schema({
 //by a GET request
 LinkSchema.method('toJSON', function() {
     var link = this.toObject();
-    delete link._id;
     delete link.__v;
     return link;
   });

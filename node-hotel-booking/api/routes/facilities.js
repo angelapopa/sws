@@ -5,7 +5,7 @@ import {
 
 const facilityRoutes = (app) => {
 
-    app.route('/api/hotels/:hotelName/facilities')
+    app.route('/api/hotels/:hotelId/facilities')
     .get((req, res, next) => {
         next();
     }, getHotelFacilities)

@@ -6,12 +6,12 @@ const Hotel = mongoose.model('Hotel', HotelSchema);
 const Facility = mongoose.model('Facility', FacilitySchema);
 
 export const getHotelFacilities = (req, res) => {
-    let hotelName = req.params.hotelName;
+    let hotelId = req.params.hotelId;
 
-    Hotel.findOne({name:hotelName}, (err, hotel) =>{
+    Hotel.findById(hotelId, (err, hotel) =>{
         if (hotel == null){
-            console.log("The Hotel name "+ hotelName + " was not found!");
-            res.status(404).send("The Hotel name "+ hotelName + " was not found!");
+            console.log("The Hotel id "+ hotelId + " was not found!");
+            res.status(404).send("The Hotel id "+ hotelId + " was not found!");
         }
         if (hotel != null){
             console.log("Found "+ hotel.facilities.length + " hotel facilities.");
@@ -21,12 +21,12 @@ export const getHotelFacilities = (req, res) => {
 };
 
 export const addHotelFacilities = (req, res) => {
-    let hotelName = req.params.hotelName;
+    let hotelId = req.params.hotelId;
 
-    Hotel.findOne({name:hotelName}, (err, hotel) =>{
+    Hotel.findById(hotelId, (err, hotel) =>{
         if (hotel == null){
-            console.log("The Hotel name "+ hotelName + " was not found!");
-            res.status(404).send("The Hotel name "+ hotelName + " was not found!");
+            console.log("The Hotel id "+ hotelId + " was not found!");
+            res.status(404).send("The Hotel id "+ hotelId + " was not found!");
         }
         if (hotel != null){
 
@@ -36,7 +36,7 @@ export const addHotelFacilities = (req, res) => {
             hotel.markModified('facilities');
         
             hotel.save(function(err) {
-                console.log("Adding 1 facility for hotel "+ hotel.name + " :");
+                console.log("Adding 1 facility for hotel "+ hotel.id + " :");
                 res.status(201).json(hotel.facilities);
             });
         }

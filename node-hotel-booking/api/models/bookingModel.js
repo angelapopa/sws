@@ -16,7 +16,6 @@ export const BookingSchema = new Schema({
 //by a GET request
 BookingSchema.method('toJSON', function() {
     var booking = this.toObject();
-    delete booking._id;
     delete booking.__v;
     return booking;
   });

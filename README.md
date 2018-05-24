@@ -7,6 +7,8 @@ Team: 6
 
 Topic: Hotel Booking API
 
+Version: 2.0
+
 ### Project setup:
 
   * the project folder is `node-hotel-booking`
@@ -24,7 +26,8 @@ Topic: Hotel Booking API
   - [x] decide upon the data format (xml/json/other): JSON
   - [x] decide how the HATEOAS can be implemented in this API (`HATEOS navigation`, `pagination`, `sorting`, `content-type in headers`)
   - [x] define mockup api calls and responses
-  - [ ] check if design guideliness were met
+  - [x] check if design guideliness were met (feedback teacher: use id's, instead of names). Only exception is for rooms, where no id field is provided in the db. Assumption: no two rooms have the same name. Query remains as originally by name. The same goes for location endpoint. All other endpoints are using ids to identify resources.
+  - [ ] think about how to implement hydra annotations (either by implementing a wrapper around the current data, or alter the existing db data)
 
 ### create a Report of this Project
   - [x] include a list of all identified resources
@@ -32,6 +35,10 @@ Topic: Hotel Booking API
   - [x] explain why we have chosen the semantify dataset
   - [x] explain which information is included in this dataset and which is not included
   - [x] add for each endpoint an example, with a request path and a json result object
+  - [x] update examples with the corrected resource identification
+  - [ ] update examples with hydra annotations
+  - [ ] add information about hydra design decisions
+  - [ ] add information about hydra client uimplementation/sage
 
 ### start implementing :)
   - [x] create new model classes to fit the data from the new dataset (maybe not all fields from the db need to used in the model)
@@ -42,7 +49,8 @@ Topic: Hotel Booking API
   - [x] how to define availability for rooms? Currently the db has the schema.org value InStock for all entries. So we ignore this field for now. We should handle availability/booking differently somehow. Ideea: to create an own endpoint for bookings (fields: `from`, `to`, `firstname` and `lastname` of the guest, `numberOfRooms` which the guest booked).
   - [x] how to implement booking of rooms????????? since the assignment is called "Hotel Booking API"!!! See the line above, by creating an own endpoint. Availability and bookings are merged together into one endpoint called 'booking'. The booked periods (`from`,`to`) mark the periods where the rooms are booked and where they are not available for new bookings. There is no check made for colliding booking periods. This is a nice to have feature for the future :)
   - [x] implement a `PUT` and a `DELETE` request for at least one endpoint (`hotels`, `facilities`)
-
+  - [ ] implement Hydra annotations
+  - [ ] implement a client that uses this hydra annotated data / or test against the hydra demo app online
 
  ### Error codes
 
@@ -58,8 +66,8 @@ Topic: Hotel Booking API
 
  | Replace value in path | with encoding | Example
  | :--- | :--- | :--- |
- | space|%20|'Landhaus Anger' /api/hotels/Landhaus%20Anger/images|
- | / | %2F|'Appartment/Fewo' /api/hotels/Tuxerhof/rooms/Appartement%2FFewo/prices|
+ | space|%20|'Landhaus Anger'|
+ | / | %2F|'Appartment/Fewo' /api/hotels/5aeb56f1eb089a6227c8fd01/rooms/Appartement%2FFewo/prices|
 
 
   ### Enpoints/Resources
@@ -69,26 +77,26 @@ Topic: Hotel Booking API
   |<ul><li>[x] </li> | GET | /api/hotels | `200 OK` | lists all hotels |
   |<ul><li>[x] </li> | POST | /api/hotels | `201 Created` or <TODO\> code in case of error| adds a new hotel |
   |<ul><li>[x] </li> | PUT | /api/hotels | `200 OK` or `500` in case of error| updates an existing hotel data |
-  |<ul><li>[x] </li>| GET | /api/hotels/<name\> | `200 OK` or `404 Not Found` | returns one hotel|
-  |<ul><li>[x] </li> | DELETE | /api/hotels/<name\> | `201 Created` or `404 Not Found` |deletes the hotel |
-  |<ul><li>[x] </li>| GET | /api/hotels/<name\>/contacts | `200 OK` or `404 Not Found` | returns the contact data of a hotel|
-  |<ul><li>[x] </li> | POST | /api/hotels/<name\>/contacts | `201 Created` or `404 Not Found` |adds contact details for a hotel |
-  |<ul><li>[x] </li>| GET | /api/hotels/<name\>/rooms |`200 OK` or `404 Not Found`| all rooms of the specific hotel, or error in case the hotel is not found|
-  |<ul><li>[ ] TODO</li>| POST | /api/hotels/<name\>/rooms | `201 Created` or <TODO\> code in case of error| adds a new room|
-  |<ul><li>[ ] TODO</li>| DELETE | /api/hotels/<name\>/rooms/<room_name\> | TODO | delete one room|
-  |<ul><li>[x] </li>| GET | /api/hotels/<name\>/rooms/<room_name\>/prices | `200` or `404`| all prices for rooms of a specific hotel|
-  |<ul><li>[x] </li>| GET | /api/hotels/<name\>/images | `200` or `404`| all images of the hotel|
-  |<ul><li>[ ] TODO </li>| POST | /api/hotels/<name\>/images | `201 Created` or `404 Not Found`| adds one image|
-  |<ul><li>[ ] TODO </li>| DELETE | /api/hotels/<name\>/images/<url\> | TODO| deletes one image|
-  |<ul><li>[x] </li>| GET | /api/hotels/<name\>/location | `200 OK` or `404 Not Found`| the postal address and the geo location of the hotel|
-  |<ul><li>[x] </li>| GET | /api/hotels/<name\>/payments | `200 OK` or `404 Not Found`| the currencies and payment posibilities that the hotel offers|
-  |<ul><li>[x] </li>| GET | /api/hotel/<name\>/facilities | `200 OK` or `404 Not Found`|all facilities or emtpy list or error in case the hotel name is not found|
-  |<ul><li>[x] </li>| POST | /api/hotel/<name\>/facilities | `201 Created` or `404 Not Found`| new facility|
-  |<ul><li>[ ] TODO</li>| DELETE | /api/hotel/<name\>/facilities/<name\> | TODO| deletes one facility|
+  |<ul><li>[x] </li>| GET | /api/hotels/<id\> | `200 OK` or `404 Not Found` | returns one hotel|
+  |<ul><li>[x] </li> | DELETE | /api/hotels/<id\> | `201 Created` or `404 Not Found` |deletes the hotel |
+  |<ul><li>[x] </li>| GET | /api/hotels/<id\>/contacts | `200 OK` or `404 Not Found` | returns the contact data of a hotel|
+  |<ul><li>[x] </li> | POST | /api/hotels/<id\>/contacts | `201 Created` or `404 Not Found` |adds contact details for a hotel |
+  |<ul><li>[x] </li>| GET | /api/hotels/<id\>/rooms |`200 OK` or `404 Not Found`| all rooms of the specific hotel, or error in case the hotel is not found|
+  |<ul><li>[ ] TODO</li>| POST | /api/hotels/<id\>/rooms | `201 Created` or <TODO\> code in case of error| adds a new room|
+  |<ul><li>[ ] TODO</li>| DELETE | /api/hotels/<id\>/rooms/<room_id\> | TODO | delete one room|
+  |<ul><li>[x] </li>| GET | /api/hotels/<id\>/rooms/<room_id\>/prices | `200` or `404`| all prices for rooms of a specific hotel|
+  |<ul><li>[x] </li>| GET | /api/hotels/<id\>/images | `200` or `404`| all images of the hotel|
+  |<ul><li>[ ] TODO </li>| POST | /api/hotels/<id\>/images | `201 Created` or `404 Not Found`| adds one image|
+  |<ul><li>[ ] TODO </li>| DELETE | /api/hotels/<id\>/images/<url\> | TODO| deletes one image|
+  |<ul><li>[x] </li>| GET | /api/hotels/<id\>/location | `200 OK` or `404 Not Found`| the postal address and the geo location of the hotel|
+  |<ul><li>[x] </li>| GET | /api/hotels/<id\>/payments | `200 OK` or `404 Not Found`| the currencies and payment posibilities that the hotel offers|
+  |<ul><li>[x] </li>| GET | /api/hotel/<id\>/facilities | `200 OK` or `404 Not Found`|all facilities or emtpy list or error in case the hotel name is not found|
+  |<ul><li>[x] </li>| POST | /api/hotel/<id\>/facilities | `201 Created` or `404 Not Found`| new facility|
+  |<ul><li>[ ] TODO</li>| DELETE | /api/hotel/<id\>/facilities/<id\> | TODO| deletes one facility|
   |<ul><li>[x] </li>| GET | /api/locations/<location\>/hotels | `200` or `404`| all hotels at the named location|
-  |<ul><li>[x] </li>| GET | /api/hotels/<name\>/rooms/<room_name\>/bookings |lists the hotel room bookings | |
-  |<ul><li>[x] </li>| POST | /api/hotels/<name\>/rooms/<room_name\>/bookings | adds a new booking| POST request body fields: `from`, `to`, `firstname`, `lastname`, `numberOfRooms`|
-  |<ul><li>[ ] TODO</li>| DELETE | /api/hotels/<name\>/rooms/<room_name\>/bookings/<from\>/<to\> | Think of something how to handle this| TODO|
+  |<ul><li>[x] </li>| GET | /api/hotels/<id\>/rooms/<room_id\>/bookings |lists the hotel room bookings | |
+  |<ul><li>[x] </li>| POST | /api/hotels/<id\>/rooms/<room_id\>/bookings | adds a new booking| POST request body fields: `from`, `to`, `firstname`, `lastname`, `numberOfRooms`|
+  |<ul><li>[ ] TODO</li>| DELETE | /api/hotels/<id\>/rooms/<room_id\>/bookings/<from\>/<to\> | Think of something how to handle this| TODO|
   |<ul><li>[x] </li>| GET | /api/users | `200` or `404`| all users|
   |<ul><li>[x] </li>| GET | /api/users/<userId\> | `200` or `404`| one user by id|
   |<ul><li>[x] </li>| POST | /api/users | `201 Created` or <TODO\> code in case of error|adds a new user|
@@ -98,21 +106,20 @@ Topic: Hotel Booking API
 |  | HTTP Request type | Endpoint| Response  | Remarks|
 | --- | --- | :--- | :--- | --- |
 |<ul><li>[x] </li> | GET |http://localhost:3000/api/hotels| all hotels |||
-|<ul><li>[x] </li>| GET | http://localhost:3000/api/hotels/Heisenhaus |||
-|<ul><li>[x] </li>| GET | http://localhost:3000/api/hotels/Ferienwohnungen%20Bernadette | Hotel name with space inside the name||
-|<ul><li>[x] </li>| GET | http://localhost:3000/api/hotels/Tuxerhof/rooms/ |||
-|<ul><li>[x] </li>| GET | http://localhost:3000/api/hotels/Tuxerhof/rooms/Appartement%2FFewo/prices |||
-|<ul><li>[x] </li>| GET | http://localhost:3000/api/hotels/Landhaus%20Anger/images |||
-|<ul><li>[x] </li>| GET | http://localhost:3000/api/hotels/Alpen%20Appartment%20Relax/location | the postal address and the geo location of the hotel||
-|<ul><li>[x] </li>| GET | http://localhost:3000/api/hotels/Stab-Hütte/payments | the currencies and payment posibilities that the hotel offers| |
+|<ul><li>[x] </li>| GET | http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd01| ||
+|<ul><li>[x] </li>| GET | http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd01/rooms/ |||
+|<ul><li>[x] </li>| GET | http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd01/rooms/Appartement%2FFewo/prices |||
+|<ul><li>[x] </li>| GET | http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd01/images |||
+|<ul><li>[x] </li>| GET | http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd01/location | the postal address and the geo location of the hotel||
+|<ul><li>[x] </li>| GET | http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd01/payments | the currencies and payment posibilities that the hotel offers| |
 |<ul><li>[x] </li>| GET | http://localhost:3000/api/locations/Ramsau/hotels| the postal address and the geo location of the hotel||
-|<ul><li>[x] </li>| GET |http://localhost:3000/api/hotels/Tuxerhof/rooms/Appartement%2FFewo/bookings | all bookings for room Appartment Fewo||
-|<ul><li>[x] </li>| POST |http://localhost:3000/api/hotels/Tuxerhof/rooms/Appartement%2FFewo/bookings | saves a new booking for Appartment Fewo ||
-|<ul><li>[x] </li>| GET| http://localhost:3000/api/hotels/Haus%20Leo/contacts |returns email, telephone and faxNumber for the given hotel||
-|<ul><li>[x] </li>| POST| http://localhost:3000/api/hotels/Haus%20Leo/contacts |saves email, telephone and faxNumber for the given hotel||
-|<ul><li>[x] </li>| GET| http://localhost:3000/api/hotels/Haus%20Leo/facilities |returns the facilities of the given hotel||
-|<ul><li>[x] </li>| POST| http://localhost:3000/api/hotels/Haus%20Leo/facilities |saves a facility for the given hotel||
+|<ul><li>[x] </li>| GET |http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd01/rooms/Appartement%2FFewo/bookings | all bookings for room Appartment Fewo||
+|<ul><li>[x] </li>| POST |http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd01/rooms/Appartement%2FFewo/bookings | saves a new booking for Appartment Fewo ||
+|<ul><li>[x] </li>| GET| http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd01/contacts |returns email, telephone and faxNumber for the given hotel||
+|<ul><li>[x] </li>| POST| http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd01/contacts |saves email, telephone and faxNumber for the given hotel||
+|<ul><li>[x] </li>| GET| http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd01/facilities |returns the facilities of the given hotel||
+|<ul><li>[x] </li>| POST| http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd01/facilities |saves a facility for the given hotel||
 |<ul><li>[x] </li>| POST| http://localhost:3000/api/users |returns all users||
-|<ul><li>[x] </li>| POST| http://localhost:3000/api/users/5afc888bed29471e54bce756 |returns one user||
+|<ul><li>[x] </li>| POST| http://localhost:3000/api/users/5aeb56f1eb089a6227c8fd01 |returns one user||
 |<ul><li>[x] </li>| POST| http://localhost:3000/api/users |saves one user||
 |TODO||add test path for each endpoint||add more|

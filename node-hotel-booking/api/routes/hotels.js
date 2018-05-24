@@ -2,7 +2,7 @@ import {
     addNewHotel,
     getAllHotels,
     getHotelsWithPagination,
-    getHotelByName,
+    getHotelById,
     getHotelImages,
     getHotelLocation,
     getHotelPayments,
@@ -26,26 +26,26 @@ const routes = (app) => {
         next();
     }, getHotelsWithPagination);
 
-    app.route('/api/hotels/:name')
+    app.route('/api/hotels/:hotelId')
     .get((req, res, next) => {
-        console.log("Search request for " + req.params.name);
+        console.log("Search request for " + req.params.hotelId);
         next();
-    }, getHotelByName)
+    }, getHotelById)
     .put(updateHotel)
     .delete(deleteHotel);
 
-    app.route('/api/hotels/:name/images')
+    app.route('/api/hotels/:hotelId/images')
     .get((req, res, next) => {
-        console.log("Searching images for " + req.params.name);
+        console.log("Searching images for " + req.params.hotelId);
         next();
     }, getHotelImages);
 
-    app.route('/api/hotels/:name/location')
+    app.route('/api/hotels/:hotelId/location')
     .get((req, res, next) => {
         next();
     }, getHotelLocation);
 
-    app.route('/api/hotels/:name/payments')
+    app.route('/api/hotels/:hotelId/payments')
     .get((req, res, next) => {
         next();
     }, getHotelPayments);

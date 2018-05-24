@@ -8,37 +8,37 @@ const Room = mongoose.model('Room', RoomSchema);
 const Booking = mongoose.model('Booking', BookingSchema);
 
 export const getHotelRoomBookings = (req, res) => {
-    let hotelName = req.params.hotelName;
+    let hotelId = req.params.hotelId;
     let roomName = req.params.roomName;
-    Hotel.findOne({name:hotelName}, (err, hotel) =>{
+    Hotel.findById(hotelId, (err, hotel) =>{
         if (hotel == null){
-            console.log("The Hotel name "+ hotelName + " was not found!");
-            res.status(404).send("The Hotel name "+ hotelName + " was not found!");
+            console.log("The Hotel id "+ hotelId + " was not found!");
+            res.status(404).send("The Hotel id "+ hotelId + " was not found!");
         }
         if (hotel != null){
             let found = false;
             hotel.makesOffer.forEach(function(element) {
                 if (element.name == roomName){
-                    console.log("Found "+ element.bookings.length+" bookings for room "+ element.name + " :");
+                    console.log("Found "+ element.bookings.length+" bookings for room "+ element.name);
                     res.status(200).json(element.bookings);
                     found = true;
                 }
             });
 
             if (!found){
-                res.status(404).send("No rooms named '"+ roomName + "' "+ "for hotel '" + hotelName + "' was not found!");
+                res.status(404).send("No room '"+ roomName + "' "+ "for hotel '" + hotelId + "' was not found!");
             }
         }
     });
 };
 
 export const addNewHotelRoomBooking = (req, res) => {
-    let hotelName = req.params.hotelName;
+    let hotelId = req.params.hotelId;
     let roomName = req.params.roomName;
-    Hotel.findOne({name:hotelName}, (err, hotel) =>{
+    Hotel.findById(hotelId, (err, hotel) =>{
         if (hotel == null){
-            console.log("The Hotel name "+ hotelName + " was not found!");
-            res.status(404).send("The Hotel name "+ hotelName + " was not found!");
+            console.log("The Hotel id "+ hotelId + " was not found!");
+            res.status(404).send("The Hotel id "+ hotelId + " was not found!");
         }
         if (hotel != null){
             let found = false;
@@ -56,14 +56,14 @@ export const addNewHotelRoomBooking = (req, res) => {
 
                     //save hotel
                     hotel.save(function(err) {
-                        console.log("Adding 1 booking for room "+ room.name + " :");
+                        console.log("Adding 1 booking for room "+ room.name);
                         res.status(201).json(room.bookings);
                     });
                 }
             });
 
             if (!found){
-                res.status(404).send("No rooms named '"+ roomName + "' "+ "for hotel '" + hotelName + "' was not found!");
+                res.status(404).send("No room '"+ roomName + "' "+ "for hotel '" + hotelId + "' was not found!");
             }
         }
     });

@@ -23,7 +23,6 @@ export const RoomSchema = new Schema({
 //by a GET request
 RoomSchema.method('toJSON', function() {
     var room = this.toObject();
-    delete room._id;
     delete room.__v;
     //in this dataset, availability has always schema.org value InStock, so it will not be displayed to the end user
     delete room.availability;

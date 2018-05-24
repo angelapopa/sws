@@ -13,7 +13,6 @@ export const FacilitySchema = new Schema({
 //by a GET request
 FacilitySchema.method('toJSON', function() {
     var facility = this.toObject();
-    delete facility._id;
     delete facility.__v;
     return facility;
   });

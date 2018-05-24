@@ -3,6 +3,7 @@
 #### Team 6: Zahra Jafari and Angela Popa
 
 ## Hotel Booking API
+### Version 2.0
 
 ### Requirements
 
@@ -18,18 +19,18 @@ Take into considerations the HATEOAS guidelines.
  |Resource|Endpoint | supported HTTP Request type | Remarks|
  |--- | --- | :--- | :--- |
  |hotels| /api/hotels | GET, POST ||
- || /api/hotels/<name\> | GET, PUT, DELETE ||
- |contacts| /api/hotels/<name\>/contacts | GET||
- || /api/hotels/<name\>/contacts | POST| fields: `email`, `telephone`, `faxNumber`|
- |rooms| /api/hotels/<name\>/rooms | GET||
- || /api/hotels/<name\>/rooms/<room_name\>/prices | GET||
- |images| /api/hotels/<name\>/images | GET ||
- |location| /api/hotels/<name\>/location | GET ||
- |payments| /api/hotels/<name\>/payments | GET ||
- |facilities| /api/hotel/<name\>/facilities | GET ||
- || /api/hotel/<name\>/facilities | POST | fields: `name`|
- |bookings| /api/hotels/<name\>/rooms/<room_name\>/bookings | GET | |
- || /api/hotels/<name\>/rooms/<room_name\>/bookings | POST|  fields: `from`, `to`, `firstname`, `lastname`, `numberOfRooms`|
+ || /api/hotels/<hotelId\> | GET, PUT, DELETE ||
+ |contacts| /api/hotels/<hotelId\>/contacts | GET||
+ || /api/hotels/<hotelId\>/contacts | POST| fields: `email`, `telephone`, `faxNumber`|
+ |rooms| /api/hotels/<hotelId\>/rooms | GET||
+ || /api/hotels/<hotelId\>/rooms/<room_name\>/prices | GET||
+ |images| /api/hotels/<hotelId\>/images | GET ||
+ |location| /api/hotels/<hotelId\>/location | GET ||
+ |payments| /api/hotels/<hotelId\>/payments | GET ||
+ |facilities| /api/hotel/<hotelId\>/facilities | GET ||
+ || /api/hotel/<hotelId\>/facilities | POST | fields: `name`|
+ |bookings| /api/hotels/<hotelId\>/rooms/<room_name\>/bookings | GET | |
+ || /api/hotels/<hotelId\>/rooms/<room_name\>/bookings | POST|  fields: `from`, `to`, `firstname`, `lastname`, `numberOfRooms`|
  |hotels at location| /api/locations/<location\>/hotels | GET| all hotels at the named location|
  |users| /api/users | GET||
  || /api/users | POST| fields: ` "first_name`,`last_name`,`email`,`created_date`|
@@ -57,6 +58,8 @@ This dataset was not providing information like `contact`, `bookings`, `faciliti
 
 The `navigation urls` were generated and imported separately. Additionally, for every newly added hotel through the API, new `navigation links` are added automatically for the new hotel.
 
+The resource identification is done by the resource id. Exception is the room endpoint, where the identification is by room name. The reason is that our current db has no ids for rooms (rooms are preexisting data). The second exception is the location resource (/api/locations/<location\>/hotels) where the location represents the name of a location (e.g. Hippach), it has no id, since it is not a standalone resource. Rooms and location names are assumed to be unique.
+
 ### Restful API Pagination, Sorting, Filtering
 
 This requirements were implemented inside the API logic and in this current version of the project they are not configurable outside the API.
@@ -72,7 +75,7 @@ Filtering: case dependent
 
 ##### Hotel Details
 ```
-GET http://localhost:3000/api/hotels/Rauchenwalderhof
+GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb
 ```
 
 ```
@@ -80,47 +83,48 @@ GET http://localhost:3000/api/hotels/Rauchenwalderhof
     "links": [
         {
             "_id": "5afcbcb1182d6018a87bf991",
-            "href": "http://localhost:3000/api/hotels/Rauchenwalderhof",
+            "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb",
             "rel": "self",
             "type": "GET"
         },
         {
             "_id": "5afcbcb1182d6018a87bf993",
-            "href": "http://localhost:3000/api/hotels/Rauchenwalderhof/images",
+            "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/images",
             "rel": "images",
             "type": "GET"
         },
         {
             "_id": "5afcbcb1182d6018a87bf995",
-            "href": "http://localhost:3000/api/hotels/Rauchenwalderhof/payments",
+            "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/payments",
             "rel": "payments",
             "type": "GET"
         },
         {
             "_id": "5afcbcb1182d6018a87bf997",
-            "href": "http://localhost:3000/api/hotels/Rauchenwalderhof/location",
+            "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/location",
             "rel": "location",
             "type": "GET"
         },
         {
             "_id": "5afcbcb1182d6018a87bf999",
-            "href": "http://localhost:3000/api/hotels/Rauchenwalderhof/rooms",
+            "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/rooms",
             "rel": "rooms",
             "type": "GET"
         },
         {
             "_id": "5afcbcb1182d6018a87bf99b",
-            "href": "http://localhost:3000/api/hotels/Rauchenwalderhof/contacts",
+            "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/contacts",
             "rel": "contacts",
             "type": "GET"
         },
         {
             "_id": "5afcbcb1182d6018a87bf99d",
-            "href": "http://localhost:3000/api/hotels/Rauchenwalderhof/facilities",
+            "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/facilities",
             "rel": "facilities",
             "type": "GET"
         }
     ],
+    "_id": "5aeb56f1eb089a6227c8fcdb",
     "url": "http://www.rauchenwalderhof.at,http://maps.mayrhofen.at/?foreignResource=71BBA2D7-2023-4353-9A23-C1B69BADEC06",
     "name": "Rauchenwalderhof",
     "description": "Das 2012 umgebaute und modern renovierte Landhotel Rauchenwalderhof liegt in sonniger, ruhiger TOP-Lage von Mayrhofen, nur wenige Meter von der Penkenbahn und Ahornbahn, abseits der Hektik der Hauptstraße, umgeben von Wiesen und Gärten.\n\nDie großteils neuen, auf 4-Sterne Niveau ausgestatteten Zimmer & Apartments bieten das ideale Ambiente für Ihren Sommer- und Winterurlaub. Das Ganzjahresskigebiet am Hintertuxer Gletscher ist in ca. 25 Minuten bequem mit dem Auto oder mit öffentlichen Verkehrsmitteln erreichbar.\n\nInmitten der Zillertaler Bergwelt verwöhnen wir Sie mit einem reichhaltigen Frühstücksbuffet, das Sie im neu gestalteten Frühstücksraum oder auf der sonnigen Terrasse einnehmen können.\n\nOb als Treffpunkt zum Aperitif oder als Ort des gemütlichen Beisammenseins bietet unsere neue Hotelbar mit Kaminecke das richtige Ambiente.\n\nWir hoffen Sie schon bald persönlich begrüßen zu dürfen!,Achtung: nur Barzahlung möglich!\n\nInklusiv: Heizung, Strom; Exklusiv: Endreinigung, zusätzliches Frühstück,Check-In: 15:00 Uhr, Check-Out: 10:00 Uhr. \n\nAnreise: \nRichtung Mayrhofen, nach dem Kreisverkehr geradeaus weiter, nach dem Bahnhof auf der Umfahrungsstrasse, nach dem Roten Kreuz die zweite Einfahrt links einbiegen in die Rauchenwaldgasse.",
@@ -130,7 +134,7 @@ GET http://localhost:3000/api/hotels/Rauchenwalderhof
 
 ##### Hotel Images
 ```
-GET http://localhost:3000/api/hotels/Rauchenwalderhof/images
+GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/images
 ```
 
 ```
@@ -165,7 +169,7 @@ GET http://localhost:3000/api/hotels/Rauchenwalderhof/images
 
 ##### Hotel Location
 ```
-GET http://localhost:3000/api/hotels/Rauchenwalderhof/location
+GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/location
 ```
 
 ```
@@ -186,7 +190,7 @@ GET http://localhost:3000/api/hotels/Rauchenwalderhof/location
 
 ##### Hotel Payment Methods
 ```
-GET http://localhost:3000/api/hotels/Kammerlandhof/payments
+GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd0d/payments
 ```
 
 ```
@@ -201,7 +205,7 @@ GET http://localhost:3000/api/hotels/Kammerlandhof/payments
 
 ##### Hotel Facilities
 ```
-GET http://localhost:3000/api/hotels/Haus%20Sailer/facilities
+GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcec/facilities
 ```
 
 ```
@@ -217,7 +221,7 @@ GET http://localhost:3000/api/hotels/Haus%20Sailer/facilities
 
 ##### Hotel Rooms
 ```
-GET http://localhost:3000/api/hotels/Tuxerhof/rooms
+GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms
 ```
 
 ```
@@ -242,19 +246,19 @@ GET http://localhost:3000/api/hotels/Tuxerhof/rooms
         "links": [
             {
                 "_id": "5af9dd794910eb2bf4c64366",
-                "href": "http://localhost:3000/api/hotels/Tuxerhof/rooms/Appartement%2FFewo",
+                "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%2FFewo",
                 "rel": "self",
                 "type": "GET"
             },
             {
                 "_id": "5af9dd794910eb2bf4c64368",
-                "href": "http://localhost:3000/api/hotels/Tuxerhof/rooms/Appartement%2FFewo/prices",
+                "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%2FFewo/prices",
                 "rel": "prices",
                 "type": "GET"
             },
             {
                 "_id": "5af9dd794910eb2bf4c6436a",
-                "href": "http://localhost:3000/api/hotels/Tuxerhof/rooms/Appartement%2FFewo/bookings",
+                "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%2FFewo/bookings",
                 "rel": "bookings",
                 "type": "GET"
             }
@@ -275,7 +279,7 @@ GET http://localhost:3000/api/hotels/Tuxerhof/rooms
 
 ##### Hotel Room Prices
 ```
-GET http://localhost:3000/api/hotels/Tuxerhof/rooms/Appartement%2FFewo/prices
+GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%2FFewo/prices
 ```
 
 ```
@@ -366,7 +370,7 @@ GET http://localhost:3000/api/locations/Hippach/hotels/9
 ```
 ##### Hotel Bookings
 ```
-GET http://localhost:3000/api/hotels/Tuxerhof/rooms/Appartement%2FFewo/bookings
+GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%2FFewo/bookings
 ```
 
 ```
@@ -396,7 +400,7 @@ GET http://localhost:3000/api/hotels/Tuxerhof/rooms/Appartement%2FFewo/bookings
 
 ##### Hotel Contact Data
 ```
-GET http://localhost:3000/api/hotels/Knechtlhof/contacts
+GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c90117/contacts
 ```
 
 ```
@@ -450,4 +454,3 @@ Results in
   * the dataset contains contact data inside the postal address element. Merge this into the current `/contact` endpoint data.
   * implement the remaining operations for the endpoints
   * make pagination and sorting configurable from outside
-  * find a solution for Umlaute in hotel names when using them in endpoints

@@ -5,12 +5,12 @@ import {
 
 const roomRoutes = (app) => {
 
-    app.route('/api/hotels/:name/rooms')
+    app.route('/api/hotels/:hotelId/rooms')
     .get((req, res, next) => {
         next();
     }, getHotelRooms);
 
-    app.route('/api/hotels/:name/rooms/:roomName/prices')
+    app.route('/api/hotels/:hotelId/rooms/:roomName/prices')
     .get((req, res, next) => {
         next();
     }, getHotelRoomPrices);

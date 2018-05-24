@@ -11,14 +11,12 @@ export const addNewHotel = (req, res) => {
 
     //add links to hotel at creation time
     const root_url = "http://localhost:3000/api/hotels";
-    let formattedHotelName0 = newHotel.name.replace(/\s+/g, "%20");
-    let formattedHotelName = formattedHotelName0.replace(/\//g, "%2F");
-    let hotelUrlNamePart = root_url + "/" + formattedHotelName;
+    let hotelUrlPart = root_url + "/" + newHotel.id;
 
     newHotel.links = [];
 
     var newSelfLink0 = new Link ({
-        href: hotelUrlNamePart,
+        href: hotelUrlPart,
         rel: "self",
         type: "GET"
     });
@@ -26,7 +24,7 @@ export const addNewHotel = (req, res) => {
     newHotel.links.push(newSelfLink0);
 
     var newSelfLink = new Link ({
-        href: hotelUrlNamePart +"/images",
+        href: hotelUrlPart +"/images",
         rel: "images",
         type: "GET"
     });
@@ -34,7 +32,7 @@ export const addNewHotel = (req, res) => {
     newHotel.links.push(newSelfLink);
 
     var newSelfLink2 = new Link ({
-        href: hotelUrlNamePart +"/payments",
+        href: hotelUrlPart +"/payments",
         rel: "payments",
         type: "GET"
     });
@@ -42,7 +40,7 @@ export const addNewHotel = (req, res) => {
     newHotel.links.push(newSelfLink2);
 
     var newSelfLink3 = new Link ({
-        href: hotelUrlNamePart +"/location",
+        href: hotelUrlPart +"/location",
         rel: "location",
         type: "GET"
      });
@@ -50,7 +48,7 @@ export const addNewHotel = (req, res) => {
     newHotel.links.push(newSelfLink3);
 
     var newSelfLink4 = new Link ({
-        href: hotelUrlNamePart +"/rooms",
+        href: hotelUrlPart +"/rooms",
         rel: "rooms",
         type: "GET"
      });
@@ -58,7 +56,7 @@ export const addNewHotel = (req, res) => {
     newHotel.links.push(newSelfLink4);
 
     var newSelfLink6 = new Link ({
-        href: hotelUrlNamePart +"/contacts",
+        href: hotelUrlPart +"/contacts",
         rel: "contacts",
         type: "GET"
      });
@@ -66,7 +64,7 @@ export const addNewHotel = (req, res) => {
     newHotel.links.push(newSelfLink6);
 
     var newSelfLink7 = new Link ({
-        href: hotelUrlNamePart +"/facilities",
+        href: hotelUrlPart +"/facilities",
         rel: "facilities",
         type: "GET"
      });
@@ -81,7 +79,7 @@ export const addNewHotel = (req, res) => {
 
 export const getAllHotels = (req, res) => {
     Hotel.find({})
-    .select(['name', 'url', 'description', 'priceRange', 'links'])
+    .select(['id', 'name', 'url', 'description', 'priceRange', 'links'])
     .sort({'name': 'ascending'})
     .exec(function (err, hotels){
         res.send(hotels);
@@ -92,21 +90,19 @@ export const getAllHotels = (req, res) => {
 export const getAllHotels = (req, res) => {
     const root_url = "http://localhost:3000/api/hotels"; //TODO consider making this somehow more configurable
     Hotel.find({})
-    //.select(['name', 'url', 'description', 'priceRange', 'links'])
+    //.select(['id', name', 'url', 'description', 'priceRange', 'links'])
     .exec(function (err, hotels){
         var enrichedHotels = [];
 
         hotels.forEach(function(hotel) {
-            //since our dataset is not populated with HATEOS links, we construct them at every GET request
+            //since our dataset is not populated with HATEOAS links, we construct them at every GET request
 
-               let formattedHotelName0 = hotel.name.replace(/\s+/g, "%20");
-               let formattedHotelName = formattedHotelName0.replace(/\//g, "%2F");
-               let hotelUrlNamePart = root_url + "/" + formattedHotelName;
+               let hotelUrlPart = root_url + "/" + newHotel.id;
 
                hotel.links = [];
 
                var newSelfLink0 = new Link ({
-                href: hotelUrlNamePart,
+                href: hotelUrlPart,
                 rel: "self",
                 type: "GET"
                 });
@@ -114,7 +110,7 @@ export const getAllHotels = (req, res) => {
                 hotel.links.push(newSelfLink0);
 
                var newSelfLink = new Link ({
-                   href: hotelUrlNamePart +"/images",
+                   href: hotelUrlPart +"/images",
                    rel: "images",
                    type: "GET"
                });
@@ -122,7 +118,7 @@ export const getAllHotels = (req, res) => {
                hotel.links.push(newSelfLink);
 
                var newSelfLink2 = new Link ({
-                href: hotelUrlNamePart +"/payments",
+                href: hotelUrlPart +"/payments",
                 rel: "payments",
                 type: "GET"
                 });
@@ -130,7 +126,7 @@ export const getAllHotels = (req, res) => {
                 hotel.links.push(newSelfLink2);
 
                 var newSelfLink3 = new Link ({
-                    href: hotelUrlNamePart +"/location",
+                    href: hotelUrlPart +"/location",
                     rel: "location",
                     type: "GET"
                 });
@@ -138,7 +134,7 @@ export const getAllHotels = (req, res) => {
                 hotel.links.push(newSelfLink3);
 
                 var newSelfLink4 = new Link ({
-                    href: hotelUrlNamePart +"/rooms",
+                    href: hotelUrlPart +"/rooms",
                     rel: "rooms",
                     type: "GET"
                 });
@@ -146,7 +142,7 @@ export const getAllHotels = (req, res) => {
                 hotel.links.push(newSelfLink4);
 
                 var newSelfLink6 = new Link ({
-                    href: hotelUrlNamePart +"/contacts",
+                    href: hotelUrlPart +"/contacts",
                     rel: "contacts",
                     type: "GET"
                 });
@@ -154,7 +150,7 @@ export const getAllHotels = (req, res) => {
                 hotel.links.push(newSelfLink6);
 
                 var newSelfLink7 = new Link ({
-                    href: hotelUrlNamePart +"/facilities",
+                    href: hotelUrlPart +"/facilities",
                     rel: "facilities",
                     type: "GET"
                  });
@@ -184,21 +180,21 @@ export const getHotelsWithPagination = (req, res) => {
     Hotel.find({})
          .skip((perPage * page) - perPage)
          .limit(perPage)
-         .select(['name', 'url', 'description', 'priceRange', 'links'])
+         .select(['id', 'name', 'url', 'description', 'priceRange', 'links'])
          .sort({'name': 'ascending'})
          .exec(function(err, hotels) {
             res.json(hotels);
         });
 };
 
-export const getHotelByName = (req, res) => {
-    let hotelName = req.params.name;
-    Hotel.findOne({name:hotelName})
-    .select(['name', 'url', 'description', 'priceRange', 'links'])
+export const getHotelById = (req, res) => {
+    let hotelId = req.params.hotelId;
+    Hotel.findById(hotelId)
+    .select(['id', 'name', 'url', 'description', 'priceRange', 'links'])
     .exec(function (err, hotel){
         if (hotel == null){
-            console.log("The Hotel name "+ hotelName + " was not found!");
-            res.status(404).send("The Hotel name "+ hotelName + " was not found!");
+            console.log("The Hotel id "+ hotelId + " was not found!");
+            res.status(404).end("The Hotel id "+ hotelId + " was not found!");
         }
         if (hotel != null){
             res.status(200).json(hotel);
@@ -207,11 +203,11 @@ export const getHotelByName = (req, res) => {
 };
 
 export const getHotelImages = (req, res) => {
-    let hotelName = req.params.name;
-    Hotel.findOne({name:hotelName}, (err, hotel) =>{
+    let hotelId = req.params.hotelId;
+    Hotel.findById(hotelId, (err, hotel) =>{
         if (hotel == null){
-            console.log("The Hotel name "+ hotelName + " was not found!");
-            res.status(404).send("The Hotel name "+ hotelName + " was not found!");
+            console.log("The Hotel id "+ hotelId + " was not found!");
+            res.status(404).send("The Hotel id "+ hotelId + " was not found!");
         }
         if (hotel != null){
             console.log("Found "+ hotel.image.length + " images.");
@@ -221,13 +217,13 @@ export const getHotelImages = (req, res) => {
 };
 
 export const getHotelLocation = (req, res) => {
-    let hotelName = req.params.name;
-    Hotel.findOne({name:hotelName})
+    let hotelId = req.params.hotelId;
+    Hotel.findById(hotelId)
     .select(['address.name','address.streetAddress', 'address.addressLocality','address.postalCode','address.addressCountry', 'geo'])
     .exec(function (err, hotel){
         if (hotel == null){
-            console.log("The Hotel name "+ hotelName + " was not found!");
-            res.status(404).send("The Hotel name "+ hotelName + " was not found!");
+            console.log("The Hotel id "+ hotelId + " was not found!");
+            res.status(404).send("The Hotel id "+ hotelId + " was not found!");
         }
         if (hotel != null){
             res.status(200).json(hotel);
@@ -236,13 +232,13 @@ export const getHotelLocation = (req, res) => {
 };
 
 export const getHotelPayments = (req, res) => {
-    let hotelName = req.params.name;
-    Hotel.findOne({"name":hotelName})
+    let hotelId = req.params.hotelId;
+    Hotel.findById(hotelId)
     .select(['paymentAccepted', 'currenciesAccepted'])
     .exec(function (err, hotel){
         if (hotel == null){
-            console.log("The Hotel name "+ hotelName + " was not found!");
-            res.status(404).send("The Hotel name "+ hotelName + " was not found!");
+            console.log("The Hotel id "+ hotelId + " was not found!");
+            res.status(404).send("The Hotel id "+ hotelId + " was not found!");
         }
         if (hotel != null){
             res.status(200).json(hotel);
@@ -251,24 +247,24 @@ export const getHotelPayments = (req, res) => {
 };
 
 export const deleteHotel = (req, res) => {
-    let hotelName = req.params.name;
-    Hotel.findOne({"name":hotelName})
+    let hotelId = req.params.hotelId;
+    Hotel.findById(hotelId)
     .exec(function (err, hotel){
         if (hotel == null){
-            console.log("The Hotel name "+ hotelName + " was not found!");
-            res.status(404).send("The Hotel name "+ hotelName + " was not found!");
+            console.log("The Hotel id "+ hotelId + " was not found!");
+            res.status(404).send("The Hotel id "+ hotelId + " was not found!");
         }
     });
-    Hotel.deleteOne({"name":hotelName})
+    Hotel.deleteOne({"_id":hotelId})
     .exec(function (err){
         res.status(204).send("Deleted");
     });
 };
 
 export const updateHotel = (req, res) => {
-    let hotelName = req.params.name;
+    let hotelId = req.params.hotelId;
 
-    Hotel.findOneAndUpdate({"name":hotelName}, req.body, function(err, uhotel){
+    Hotel.findOneAndUpdate({"_id": hotelId}, req.body, function(err, uhotel){
         if (err) return handleError(err);
         res.status(200).json(uhotel);
     });

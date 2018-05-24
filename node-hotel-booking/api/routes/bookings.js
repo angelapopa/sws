@@ -5,7 +5,7 @@ import {
 
 const bookingRoutes = (app) => {
 
-    app.route('/api/hotels/:hotelName/rooms/:roomName/bookings')
+    app.route('/api/hotels/:hotelId/rooms/:roomName/bookings')
     .get((req, res, next) => {
         next();
     }, getHotelRoomBookings)

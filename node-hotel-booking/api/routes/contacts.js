@@ -5,7 +5,7 @@ import {
 
 const contactRoutes = (app) => {
 
-    app.route('/api/hotels/:name/contacts')
+    app.route('/api/hotels/:hotelId/contacts')
     .get((req, res, next) => {
         next();
     }, getHotelContacts)

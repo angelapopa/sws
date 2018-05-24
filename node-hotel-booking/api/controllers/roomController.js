@@ -5,12 +5,13 @@ import { RoomSchema } from '../models/roomModel';
 const Hotel = mongoose.model('Hotel', HotelSchema);
 const Room = mongoose.model('Room', RoomSchema);
 
+//FIXME: there is no id field in the db for rooms
 export const getHotelRooms = (req, res) => {
-    let hotelName = req.params.name;
-    Hotel.findOne({name:hotelName}, (err, hotel) =>{
+    let hotelId = req.params.hotelId;
+    Hotel.findById(hotelId, (err, hotel) =>{
         if (hotel == null){
-            console.log("The Hotel name "+ hotelName + " was not found!");
-            res.status(404).send("The Hotel name "+ hotelName + " was not found!");
+            console.log("The Hotel id "+ hotelId + " was not found!");
+            res.status(404).send("The Hotel id "+ hotelId + " was not found!");
         }
         if (hotel != null){
             console.log("Found "+ hotel.makesOffer.length + " room offers.");
@@ -20,14 +21,14 @@ export const getHotelRooms = (req, res) => {
 };
 
 export const getHotelRoomPrices = (req, res) => {
-    let hotelName = req.params.name;
-    console.log(hotelName);
+    let hotelId = req.params.hotelId;
+    console.log(hotelId);
     let roomName = req.params.roomName;
-    console.log(roomName);
-    Hotel.findOne({name:hotelName}, (err, hotel) =>{
+    console.log("room " + roomName);
+    Hotel.findById(hotelId, (err, hotel) =>{
         if (hotel == null){
-            console.log("The Hotel name "+ hotelName + " was not found!");
-            res.status(404).send("The Hotel name "+ hotelName + " was not found!");
+            console.log("The Hotel id "+ hotelId + " was not found!");
+            res.status(404).send("The Hotel id "+ hotelId + " was not found!");
         }
         if (hotel != null){
             let found = false;
@@ -40,7 +41,7 @@ export const getHotelRoomPrices = (req, res) => {
             });
 
             if (!found){
-                res.status(404).send("No room offer named '"+ roomName + "' "+ "for hotel '" + hotelName + "' was not found!");
+                res.status(404).send("No room offer '"+ roomName + "' "+ "for hotel '" + hotelId + "' was not found!");
             }
         }
     });

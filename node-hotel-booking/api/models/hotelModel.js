@@ -40,12 +40,11 @@ export const HotelSchema = new Schema({
     //TODO add more fields (if needed)
 });
 
-//hiding mongo db fields _id and _v 
+//hiding mongo db fields and _v 
 //from the json object that is returned
 //by a GET request
 HotelSchema.method('toJSON', function() {
     var hotel = this.toObject();
-    delete hotel._id;
     delete hotel.__v;
     return hotel;
 });
