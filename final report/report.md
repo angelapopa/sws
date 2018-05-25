@@ -75,7 +75,7 @@ Filtering: case dependent
 
 ##### Hotel Details
 ```
-GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb
+GET /api/hotels/5aeb56f1eb089a6227c8fcdb
 ```
 
 ```
@@ -83,43 +83,43 @@ GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb
     "links": [
         {
             "_id": "5afcbcb1182d6018a87bf991",
-            "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb",
+            "href": "/api/hotels/5aeb56f1eb089a6227c8fcdb",
             "rel": "self",
             "type": "GET"
         },
         {
             "_id": "5afcbcb1182d6018a87bf993",
-            "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/images",
+            "href": "/api/hotels/5aeb56f1eb089a6227c8fcdb/images",
             "rel": "images",
             "type": "GET"
         },
         {
             "_id": "5afcbcb1182d6018a87bf995",
-            "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/payments",
+            "href": "/api/hotels/5aeb56f1eb089a6227c8fcdb/payments",
             "rel": "payments",
             "type": "GET"
         },
         {
             "_id": "5afcbcb1182d6018a87bf997",
-            "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/location",
+            "href": "/api/hotels/5aeb56f1eb089a6227c8fcdb/location",
             "rel": "location",
             "type": "GET"
         },
         {
             "_id": "5afcbcb1182d6018a87bf999",
-            "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/rooms",
+            "href": "/api/hotels/5aeb56f1eb089a6227c8fcdb/rooms",
             "rel": "rooms",
             "type": "GET"
         },
         {
             "_id": "5afcbcb1182d6018a87bf99b",
-            "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/contacts",
+            "href": "/api/hotels/5aeb56f1eb089a6227c8fcdb/contacts",
             "rel": "contacts",
             "type": "GET"
         },
         {
             "_id": "5afcbcb1182d6018a87bf99d",
-            "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/facilities",
+            "href": "/api/hotels/5aeb56f1eb089a6227c8fcdb/facilities",
             "rel": "facilities",
             "type": "GET"
         }
@@ -134,7 +134,7 @@ GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb
 
 ##### Hotel Images
 ```
-GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/images
+GET /api/hotels/5aeb56f1eb089a6227c8fcdb/images
 ```
 
 ```
@@ -169,7 +169,7 @@ GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/images
 
 ##### Hotel Location
 ```
-GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/location
+GET /api/hotels/5aeb56f1eb089a6227c8fcdb/location
 ```
 
 ```
@@ -190,7 +190,7 @@ GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcdb/location
 
 ##### Hotel Payment Methods
 ```
-GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd0d/payments
+GET /api/hotels/5aeb56f1eb089a6227c8fd0d/payments
 ```
 
 ```
@@ -205,7 +205,7 @@ GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd0d/payments
 
 ##### Hotel Facilities
 ```
-GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcec/facilities
+GET /api/hotels/5aeb56f1eb089a6227c8fcec/facilities
 ```
 
 ```
@@ -221,7 +221,7 @@ GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcec/facilities
 
 ##### Hotel Rooms
 ```
-GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms
+GET /api/hotels/5aeb56f1eb089a6227c8fd9c/rooms
 ```
 
 ```
@@ -246,19 +246,19 @@ GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms
         "links": [
             {
                 "_id": "5af9dd794910eb2bf4c64366",
-                "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%2FFewo",
+                "href": "/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%2FFewo",
                 "rel": "self",
                 "type": "GET"
             },
             {
                 "_id": "5af9dd794910eb2bf4c64368",
-                "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%2FFewo/prices",
+                "href": "/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%2FFewo/prices",
                 "rel": "prices",
                 "type": "GET"
             },
             {
                 "_id": "5af9dd794910eb2bf4c6436a",
-                "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%2FFewo/bookings",
+                "href": "/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%2FFewo/bookings",
                 "rel": "bookings",
                 "type": "GET"
             }
@@ -279,7 +279,7 @@ GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms
 
 ##### Hotel Room Prices
 ```
-GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%2FFewo/prices
+GET /api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%2FFewo/prices
 ```
 
 ```
@@ -303,7 +303,7 @@ GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%
 ##### All Hotels at Location Hippach, page 9
 
 ```
-GET http://localhost:3000/api/locations/Hippach/hotels/9
+GET /api/locations/Hippach/hotels/9
 ```
 
 ```
@@ -311,43 +311,43 @@ GET http://localhost:3000/api/locations/Hippach/hotels/9
        "links": [
            {
                "_id": "5afcbcb1182d6018a87bfa0f",
-               "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcf0,
+               "href": "/api/hotels/5aeb56f1eb089a6227c8fcf0,
                "rel": "self",
                "type": "GET"
            },
            {
                "_id": "5afcbcb1182d6018a87bfa11",
-               "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcf0/images",
+               "href": "/api/hotels/5aeb56f1eb089a6227c8fcf0/images",
                "rel": "images",
                "type": "GET"
            },
            {
                "_id": "5afcbcb1182d6018a87bfa13",
-               "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcf0/payments",
+               "href": "/api/hotels/5aeb56f1eb089a6227c8fcf0/payments",
                "rel": "payments",
                "type": "GET"
            },
            {
                "_id": "5afcbcb1182d6018a87bfa15",
-               "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcf0/location",
+               "href": "/api/hotels/5aeb56f1eb089a6227c8fcf0/location",
                "rel": "location",
                "type": "GET"
            },
            {
                "_id": "5afcbcb1182d6018a87bfa17",
-               "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcf0/rooms",
+               "href": "/api/hotels/5aeb56f1eb089a6227c8fcf0/rooms",
                "rel": "rooms",
                "type": "GET"
            },
            {
                "_id": "5afcbcb1182d6018a87bfa19",
-               "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcf0/contacts",
+               "href": "/api/hotels/5aeb56f1eb089a6227c8fcf0/contacts",
                "rel": "contacts",
                "type": "GET"
            },
            {
                "_id": "5afcbcb1182d6018a87bfa1b",
-               "href": "http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fcf0/facilities",
+               "href": "/api/hotels/5aeb56f1eb089a6227c8fcf0/facilities",
                "rel": "facilities",
                "type": "GET"
            }
@@ -371,7 +371,7 @@ GET http://localhost:3000/api/locations/Hippach/hotels/9
 ```
 ##### Hotel Bookings
 ```
-GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%2FFewo/bookings
+GET /api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%2FFewo/bookings
 ```
 
 ```
@@ -401,7 +401,7 @@ GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c8fd9c/rooms/Appartement%
 
 ##### Hotel Contact Data
 ```
-GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c90117/contacts
+GET /api/hotels/5aeb56f1eb089a6227c90117/contacts
 ```
 
 ```
@@ -416,7 +416,7 @@ GET http://localhost:3000/api/hotels/5aeb56f1eb089a6227c90117/contacts
 
 ##### Hotel API Users
 ```
-GET http://localhost:3000/users/
+GET /users/
 ```
 
 ```
@@ -438,7 +438,7 @@ GET http://localhost:3000/users/
 
 ##### Hotel API Users
 ```
-GET http://localhost:3000/api/users/5afc888bed29471e54bce756
+GET /api/users/5afc888bed29471e54bce756
 ```
 
 Results in

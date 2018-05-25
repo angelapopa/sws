@@ -1,9 +1,11 @@
 import mongoose from 'mongoose';
 import { HotelSchema } from '../models/hotelModel';
 import { RoomSchema } from '../models/roomModel';
+import { LinkSchema} from '../models/linkModel';
 
 const Hotel = mongoose.model('Hotel', HotelSchema);
 const Room = mongoose.model('Room', RoomSchema);
+const Link = mongoose.model('Link', LinkSchema);
 
 //FIXME: there is no id field in the db for rooms
 export const getHotelRooms = (req, res) => {
@@ -16,6 +18,23 @@ export const getHotelRooms = (req, res) => {
         if (hotel != null){
             console.log("Found "+ hotel.makesOffer.length + " room offers.");
             res.status(200).json(hotel.makesOffer);
+        }
+    });
+};
+
+export const getHotelRoomsByName = (req, res) => {
+    let hotelId = req.params.hotelId;
+    Hotel.findById(hotelId, (err, hotel) =>{
+        if (hotel == null){
+            console.log("The Hotel id "+ hotelId + " was not found!");
+            res.status(404).send("The Hotel id "+ hotelId + " was not found!");
+        }
+        if (hotel != null){
+            hotel.makesOffer.forEach(function(element) {
+                if (element.name == req.params.roomName){
+                    res.status(200).json(element);
+                }
+            });
         }
     });
 };

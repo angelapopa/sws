@@ -5,7 +5,7 @@ import {LinkSchema} from './linkModel'
 const Schema = mongoose.Schema;
 
 //mongoose subdocument for rooms
-export const RoomSchema = new Schema({ 
+export const RoomSchema = new Schema({
     name : {type: String},
     description: {type: String},
     bookings: [BookingSchema],

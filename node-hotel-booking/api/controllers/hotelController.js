@@ -10,7 +10,7 @@ export const addNewHotel = (req, res) => {
     let newHotel = new Hotel(req.body);
 
     //add links to hotel at creation time
-    const root_url = "http://localhost:3000/api/hotels";
+    const root_url = "/api/hotels";
     let hotelUrlPart = root_url + "/" + newHotel.id;
 
     newHotel.links = [];
@@ -76,7 +76,6 @@ export const addNewHotel = (req, res) => {
     });
 };
 
-
 export const getAllHotels = (req, res) => {
     Hotel.find({})
     .select(['id', 'name', 'url', 'description', 'priceRange', 'links'])
@@ -85,92 +84,6 @@ export const getAllHotels = (req, res) => {
         res.send(hotels);
     });
 };
-
-/* misuse of the get operation, to import link data into the db
-export const getAllHotels = (req, res) => {
-    const root_url = "http://localhost:3000/api/hotels"; //TODO consider making this somehow more configurable
-    Hotel.find({})
-    //.select(['id', name', 'url', 'description', 'priceRange', 'links'])
-    .exec(function (err, hotels){
-        var enrichedHotels = [];
-
-        hotels.forEach(function(hotel) {
-            //since our dataset is not populated with HATEOAS links, we construct them at every GET request
-
-               let hotelUrlPart = root_url + "/" + newHotel.id;
-
-               hotel.links = [];
-
-               var newSelfLink0 = new Link ({
-                href: hotelUrlPart,
-                rel: "self",
-                type: "GET"
-                });
-
-                hotel.links.push(newSelfLink0);
-
-               var newSelfLink = new Link ({
-                   href: hotelUrlPart +"/images",
-                   rel: "images",
-                   type: "GET"
-               });
-
-               hotel.links.push(newSelfLink);
-
-               var newSelfLink2 = new Link ({
-                href: hotelUrlPart +"/payments",
-                rel: "payments",
-                type: "GET"
-                });
-
-                hotel.links.push(newSelfLink2);
-
-                var newSelfLink3 = new Link ({
-                    href: hotelUrlPart +"/location",
-                    rel: "location",
-                    type: "GET"
-                });
-    
-                hotel.links.push(newSelfLink3);
-
-                var newSelfLink4 = new Link ({
-                    href: hotelUrlPart +"/rooms",
-                    rel: "rooms",
-                    type: "GET"
-                });
-    
-                hotel.links.push(newSelfLink4);
-
-                var newSelfLink6 = new Link ({
-                    href: hotelUrlPart +"/contacts",
-                    rel: "contacts",
-                    type: "GET"
-                });
-    
-                hotel.links.push(newSelfLink6);
-
-                var newSelfLink7 = new Link ({
-                    href: hotelUrlPart +"/facilities",
-                    rel: "facilities",
-                    type: "GET"
-                 });
-            
-                hotel.links.push(newSelfLink7);
-
-              hotel.save((err, savedHotel) => {
-                 
-               });
-
-               enrichedHotels.push(hotel);
-               
-
-       });
-
-
-        res.send(enrichedHotels);
-        //res.send(hotels);
-    });
-};*/
 
 //TODO add fields like totalNumberOfPages, firstPage, lastPage etc.
 //by using some node js package dedicated for pagination

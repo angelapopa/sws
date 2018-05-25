@@ -1,6 +1,7 @@
 import { 
    getHotelRooms,
-   getHotelRoomPrices
+   getHotelRoomPrices,
+   getHotelRoomsByName
 } from "../controllers/roomController";
 
 const roomRoutes = (app) => {
@@ -9,6 +10,11 @@ const roomRoutes = (app) => {
     .get((req, res, next) => {
         next();
     }, getHotelRooms);
+
+    app.route('/api/hotels/:hotelId/rooms/:roomName')
+    .get((req, res, next) => {
+        next();
+    }, getHotelRoomsByName);
 
     app.route('/api/hotels/:hotelId/rooms/:roomName/prices')
     .get((req, res, next) => {
