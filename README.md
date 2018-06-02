@@ -19,7 +19,6 @@ Version: 2.0
 ### design the REST API
   - [x] identify 10 resources (`hotels`, `rooms`, `location`, `images`, `contacts`, `prices`, `payments`, `bookings`, `facilities`, `users`)
   - [x] check if design guideliness were met (feedback teacher: use id's, instead of names). Only exception is for rooms, where no id field is provided in the db. Assumption: no two rooms have the same name. Query remains as originally by name. The same goes for location endpoint. All other endpoints are using ids to identify resources.
-  - [ ] think about how to implement hydra annotations (either by implementing a wrapper around the current data, or alter the existing db data)
 
 ### create a Report of this Project
   - [x] update examples with the corrected resource identification
@@ -28,8 +27,9 @@ Version: 2.0
   - [ ] add information about hydra client uimplementation/sage
 
 ### start implementing :)
-  - [ ] implement Hydra annotations
-  - [ ] implement a client that uses this hydra annotated data / or test against the hydra demo app online
+  - [ ] Convert the Web API you developed to a lightweight semantic web sevice with Hydra.
+  - [ ] Implement a generic client that understands the services annotated with your assigned vocabulary
+(and/or test against the hydra demo app online)
 
 ### Enpoints/Resources
 
