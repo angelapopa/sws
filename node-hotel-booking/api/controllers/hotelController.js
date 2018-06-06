@@ -7,8 +7,38 @@ const Hotel = mongoose.model('Hotel', HotelSchema);
 const Link = mongoose.model('Link', LinkSchema);
 
 export const addNewHotel = (req, res) => {
+    var body = req.body;
     let newHotel = new Hotel(req.body);
+    var respond = function(err, results){
+        if (err){
+            res.send(JSON.stringify(err));
+        }else{
+            res.send(JSON.stringify(results));
+      }
 
+ };
+ res.set('content-type','application/json');
+    switch (body.action){
+
+       case "getHotel":
+
+           Hotel.find({},respond);
+           break;
+       case "addNewHotel":
+          Hotel.create(HotelSchema, respond); 
+          
+          break;
+       case "ratingHotel": 
+          Hotel.update({name: body.name}, { 
+              $set: { rating: body.rating}},
+              function (err, num) {
+              respond(err, {success: num+"record updated"}); 
+          });
+          break;
+       default:
+           res.send('does not get the hotel');
+    
+    };
     //add links to hotel at creation time
     const root_url = "/api/hotels";
     let hotelUrlPart = root_url + "/" + newHotel.id;

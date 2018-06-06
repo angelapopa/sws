@@ -15,10 +15,13 @@ const routes = (app) => {
     //GET all hotels
     app.route('/api/hotels/')
     .get((req, res, next) => {
+        
         next(); //continues with next function
     }, getAllHotels)
     //POST endpoint
     .post(addNewHotel);
+    
+
 
     //GET hotels with pagination
     app.route('/api/hotels/:page([0-9]+)')
