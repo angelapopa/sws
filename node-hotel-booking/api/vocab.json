@@ -1,0 +1,116 @@
+{
+    "@context": {
+        "vocab": "/api/vocab",
+        "hydra": "http://www.w3.org/ns/hydra/core#",
+        "ApiDocumentation": "hydra:ApiDocumentation",
+        "property": {
+            "@id": "hydra:property",
+            "@type": "@id"
+        },
+        "readonly": "hydra:readonly",
+        "writeonly": "hydra:writeonly",
+        "supportedClass": "hydra:supportedClass",
+        "supportedProperty": "hydra:supportedProperty",
+        "supportedOperation": "hydra:supportedOperation",
+        "method": "hydra:method",
+        "expects": {
+            "@id": "hydra:expects",
+            "@type": "@id"
+        },
+        "returns": {
+            "@id": "hydra:returns",
+            "@type": "@id"
+        },
+        "statusCodes": "hydra:statusCodes",
+        "code": "hydra:statusCode",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "label": "rdfs:label",
+        "description": "rdfs:comment",
+        "domain": {
+            "@id": "rdfs:domain",
+            "@type": "@id"
+        },
+        "range": {
+            "@id": "rdfs:range",
+            "@type": "@id"
+        },
+        "subClassOf": {
+            "@id": "rdfs:subClassOf",
+            "@type": "@id"
+        }
+    },
+    "@id": "/api/vocab",
+    "@type": "ApiDocumentation",
+    "supportedClass": [
+        {
+            "@id": "http://schema.org/Hotel",
+            "@type": "hydra:Class",
+            "hydra:title": "Hotel",
+            "hydra:description": null,
+            "supportedOperation": [
+                {
+                    "@id": "_:hotel_replace",
+                    "@type": "http://schema.org/UpdateAction",
+                    "method": "PUT",
+                    "label": "Replaces an existing PUT entity",
+                    "description": null,
+                    "expects": "http://schema.org/Hotel",
+                    "returns": "http://schema.org/Hotel",
+                    "statusCodes": [
+                        {
+                            "code": 404,
+                            "description": "If the Hotel entity wasn't found."
+                        }
+                    ]
+                },
+                {
+                    "@id": "_:hotel_create",
+                    "@type": "http://schema.org/CreateAction",
+                    "method": "POST",
+                    "label": "Creates a Hotel entity",
+                    "description": null,
+                    "expects": null,
+                    "returns": "http://schema.org/Hotel",
+                    "statusCodes": []
+                },
+                {
+                    "@id": "_:hotel_retrieve",
+                    "@type": "hydra:Operation",
+                    "method": "GET",
+                    "label": "Retrieves a Hotel entity",
+                    "description": null,
+                    "expects": null,
+                    "returns": "http://schema.org/Hotel",
+                    "statusCodes": []
+                }
+            ],
+            "supportedProperty": [
+                {
+                    "property": "http://schema.org/name",
+                    "hydra:title": "name",
+                    "hydra:description": "The hotels name",
+                    "required": true,
+                    "readonly": false,
+                    "writeonly": false
+                },
+                {
+                    "property": "http://schema.org/description",
+                    "hydra:title": "description",
+                    "hydra:description": "Description of the hotel",
+                    "required": true,
+                    "readonly": false,
+                    "writeonly": false
+                },
+                {
+                    "property": "http://schema.org/url",
+                    "hydra:title": "url",
+                    "hydra:description": "The url of the hotel",
+                    "required": true,
+                    "readonly": false,
+                    "writeonly": false
+                }
+            ]
+        }
+    ]
+}

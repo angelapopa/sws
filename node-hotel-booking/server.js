@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 import express from 'express';
 import bodyParser from 'body-parser'; //allows to send data to DB through http
 
+import apiDoc from './api/vocab'; //the hotel api documentation vocabulary, annotated with hydra
+
 import routes from './api/routes/hotels';
 import contactRoutes from './api/routes/contacts';
 import bookingRoutes from './api/routes/bookings';
@@ -29,6 +31,10 @@ app.use(express.json());
 // Set content type
 app.use(function (req, res, next) {
     res.setHeader("Content-Type", 'application/ld+json');
+    res.setHeader("Link", '</api/vocab>; rel="http://www.w3.org/ns/hydra/json-ld#context"; type="application/ld+json")');
+
+    //res.setHeader("Link", '<http://c92f1593.ngrok.io/api/vocab>; rel="http://www.w3.org/ns/hydra/core#apiDocumentation"');
+    //res.setHeader("Link", '<http://www.w3.org/ns/hydra/context.jsonld>; rel="http://www.w3.org/ns/hydra/core#apiDocumentation"');
     res.contentType('application/ld+json');
     next();
   });
@@ -43,6 +49,10 @@ userRoutes(app);
 
 app.get('/api', (req, res) => 
     res.send(`Node and express server is running on port ${PORT}`)
+);
+
+app.get('/api/vocab', (req, res) => 
+    res.json(apiDoc)
 );
 
 app.use((err, req, res, next) => {

@@ -45,13 +45,19 @@ export const HotelSchema = new Schema({
 //adding annotations to the hotel json object
 HotelSchema.method('toJSON', function() {
     var hotel = this.toObject();
-        
-    hotel["@context"] = "https://schema.org/";
-    hotel["@type"] = "Hotel";
+
     hotel["@id"] = "/api/hotels/" + hotel._id;
+    
+    //does not work
+    //hotel["@context"] = "/api/vocab";
+    //hotel["@type"] = "http://schema.org/Hotel";
+
+    //works
+    hotel["@context"] = "http://schema.org/";
+    hotel["@type"] = "Hotel";
 
     //TODO: handle links somehow different
-    delete hotel.links;
+    //delete hotel.links;
 
     delete hotel._id; //_id was assigned previously to the new field @id
     delete hotel.__v; //version is not needed now

@@ -14,6 +14,7 @@ export const ContactSchema = new Schema({
 //by a GET request
 ContactSchema.method('toJSON', function() {
     var contact = this.toObject();
+    contact["@type"] = "ContactPoint"
     delete contact.__v;
     return contact;
   });
