@@ -40,11 +40,20 @@ export const HotelSchema = new Schema({
     //TODO add more fields (if needed)
 });
 
-//hiding mongo db fields and _v 
-//from the json object that is returned
-//by a GET request
+//wrapper for a json object (in case of a GET Request)
+//hiding mongo db fields _id and __v 
+//adding annotations to the hotel json object
 HotelSchema.method('toJSON', function() {
     var hotel = this.toObject();
-    delete hotel.__v;
+        
+    hotel["@context"] = "https://schema.org/";
+    hotel["@type"] = "Hotel";
+    hotel["@id"] = "/api/hotels/" + hotel._id;
+
+    //TODO: handle links somehow different
+    delete hotel.links;
+
+    delete hotel._id; //_id was assigned previously to the new field @id
+    delete hotel.__v; //version is not needed now
     return hotel;
 });
