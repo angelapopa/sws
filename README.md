@@ -9,6 +9,10 @@ Topic: Hotel Booking API
 
 Version: 2.0
 
+### hydra
+use `http://2e117ef2.ngrok.io/api/hotels/5aeb56f1eb089a6227c8fcf0` in the hydra console.
+It should work as long as my laptop is turned on.
+
 ### Project setup:
 
   * the project folder is `node-hotel-booking`
