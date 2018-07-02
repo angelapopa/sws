@@ -57,7 +57,7 @@ HotelSchema.method('toJSON', function() {
     hotel["@type"] = "Hotel";
 
     //TODO: handle links somehow different
-    //delete hotel.links;
+    delete hotel.links;
 
     delete hotel._id; //_id was assigned previously to the new field @id
     delete hotel.__v; //version is not needed now

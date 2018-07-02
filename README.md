@@ -24,7 +24,7 @@ Version: 2.0
   - [x] update examples with the corrected resource identification
   - [ ] update examples with hydra annotations
   - [ ] add information about hydra design decisions
-  - [ ] add information about hydra client uimplementation/sage
+  - [ ] add information about hydra client implementation/usage
 
 ### start implementing :)
   - [ ] Convert the Web API you developed to a lightweight semantic web sevice with Hydra.

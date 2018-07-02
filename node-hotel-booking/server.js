@@ -31,10 +31,7 @@ app.use(express.json());
 // Set content type
 app.use(function (req, res, next) {
     res.setHeader("Content-Type", 'application/ld+json');
-    res.setHeader("Link", '</api/vocab>; rel="http://www.w3.org/ns/hydra/json-ld#context"; type="application/ld+json")');
-
-    //res.setHeader("Link", '<http://c92f1593.ngrok.io/api/vocab>; rel="http://www.w3.org/ns/hydra/core#apiDocumentation"');
-    //res.setHeader("Link", '<http://www.w3.org/ns/hydra/context.jsonld>; rel="http://www.w3.org/ns/hydra/core#apiDocumentation"');
+    res.setHeader("Link", '<http://2e117ef2.ngrok.io/api/vocab>; rel="http://www.w3.org/ns/hydra/core#apiDocumentation"');
     res.contentType('application/ld+json');
     next();
   });

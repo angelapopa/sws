@@ -1,0 +1,16 @@
+Project Status: 
+incomplete, not presentable at this stage
+
+Fixes from the previous presentation:
+- we changed the identification of the resources to be by ids and not by names.
+
+Project Progress:
+- we defined a wrapper method that annotates the existing json objects with schema.org annotations (e.g. Hotel, PostalAddress, ContactPoint)
+- we defined a vocabulary for hotels as a hydra class, as exemplified in https://www.markus-lanthaler.com/hydra/event-api/vocab, 
+located in the project source code at "node-hotel-booking\api\vocab.json"
+- we tried loading this vocabulary in the Header Link as described here "http://www.hydra-cg.com/spec/latest/core/#discovering-a-hydra-powered-web-api".
+The purpose was that the hydra console displays the documentation for our json object fields, but we failed miserably.
+- we got a lockout from hydra console after many test requests
+
+Lessons learned
+- lack on our side of proper time management and effort estimation for assignments that have a time span over more weeks.

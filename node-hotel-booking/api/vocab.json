@@ -1,6 +1,8 @@
 {
+    "@id": "http://2e117ef2.ngrok.io/api/vocab",
+    "@type": "ApiDocumentation",
     "@context": {
-        "vocab": "/api/vocab",
+        "vocab": "http://2e117ef2.ngrok.io/api/vocab#",
         "hydra": "http://www.w3.org/ns/hydra/core#",
         "ApiDocumentation": "hydra:ApiDocumentation",
         "property": {
@@ -40,8 +42,6 @@
             "@type": "@id"
         }
     },
-    "@id": "/api/vocab",
-    "@type": "ApiDocumentation",
     "supportedClass": [
         {
             "@id": "http://schema.org/Hotel",
