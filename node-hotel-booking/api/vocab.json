@@ -1,8 +1,8 @@
 {
-    "@id": "http://2e117ef2.ngrok.io/api/vocab",
+    "@id": "http://38add60d.ngrok.io/api/vocab",
     "@type": "ApiDocumentation",
     "@context": {
-        "vocab": "http://2e117ef2.ngrok.io/api/vocab#",
+        "vocab": "http://38add60d.ngrok.io/api/vocab#",
         "hydra": "http://www.w3.org/ns/hydra/core#",
         "ApiDocumentation": "hydra:ApiDocumentation",
         "property": {
