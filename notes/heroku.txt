@@ -1,0 +1,33 @@
+heroku : create free account
+download CLI for Windows
+
+heroku create (in cmd in the local git repo) - creates a heroku app
+git push heroku master - deploys to heroku
+heroku ps:scale web=1
+heroku open
+
+heroku logs --tail
+
+
+procfile ?    npm start???
+
+
+
+heroku local web    -to start app locally
+http://localhost:5000/
+
+heroku local  -to test after source code changes
+<push to git repo>
+git push heroku master   - push to heroku
+heroku open cool  - cool stands here for a routing
+
+
+heroku run bash   - to see e.g. eat files are on the heroku server e.g. with ls
+
+
+====
+setup a db
+
+<mongo>
+
+heroku config - check the db url
