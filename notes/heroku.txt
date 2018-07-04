@@ -1,6 +1,9 @@
 heroku : create free account
 download CLI for Windows
 
+
+heroku login
+
 heroku create (in cmd in the local git repo) - creates a heroku app
 git push heroku master - deploys to heroku
 heroku ps:scale web=1
@@ -31,3 +34,11 @@ setup a db
 <mongo>
 
 heroku config - check the db url
+
+
+MongoDB remote: https://www.mlab.com/databases/heroku_6hsfhqzk
+
+mongoimport -h ds125831.mlab.com:25831 -d heroku_6hsfhqzk -c swshotels -u heroku_6hsfhqzk -p qsa838q54qos93to984leeiphk --file "e:\docs\Uni Innsbruck\Studium\semester4\Semantic Web Services\PS\github_api_project_3\sws\dataset\hotels_enriched.json"
+
+
+mongoimport -h ds125831.mlab.com:25831 -d heroku_6hsfhqzk -c swshotels -u heroku_6hsfhqzk -p qsa838q54qos93to984leeiphk --file "e:\docs\Uni Innsbruck\Studium\semester4\Semantic Web Services\PS\github_api_project_3\sws\dataset\hotels_enriched.json"
